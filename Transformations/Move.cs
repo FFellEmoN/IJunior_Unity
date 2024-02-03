@@ -30,9 +30,7 @@ public class Move : MonoBehaviour
             _speed *= -1;
         }
 
-
         _movementPosition.z = _speed * Time.deltaTime;
         transform.Translate(_movementPosition);
-
     }
 }
