@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Transform _positionEndRoad;
+
     private Vector3 _movementPosition;
     private float _startPositionZ;
 
