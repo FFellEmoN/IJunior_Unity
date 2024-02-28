@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -19,15 +16,16 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         var position = transform.position;
+        float positionCorrectionFactor = 0.1f;
 
         if (transform.position.z > _positionEndRoad.position.z)
         {
-            position.z = _positionEndRoad.position.z - 0.1f;
+            position.z = _positionEndRoad.position.z - positionCorrectionFactor;
             _speed *= -1;
         }
         else if(transform.position.z < _startPositionZ)
         {
-            position.z = _startPositionZ + 0.1f;
+            position.z = _startPositionZ + positionCorrectionFactor;
             _speed *= -1;
         }
 
