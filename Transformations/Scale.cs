@@ -10,11 +10,14 @@ public class Scale : MonoBehaviour
         scaleChange = new Vector3(-_speedScale, -_speedScale, -_speedScale);
     }
 
-    void Update()
+    private void Update()
     {
+        float minSize = 0.1f;
+        float maxSize = 1.0f;
+
         transform.localScale += scaleChange;
 
-        if (transform.localScale.y < 0.1f || transform.localScale.y > 1.0f)
+        if (transform.localScale.y < minSize || transform.localScale.y > maxSize)
         {
             scaleChange = -scaleChange;
         }
