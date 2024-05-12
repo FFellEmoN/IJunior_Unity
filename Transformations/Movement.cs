@@ -2,34 +2,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private Transform[] _waipoints;
     [SerializeField] private float _speed;
-    [SerializeField] private Transform _positionEndRoad;
 
-    private Vector3 _movementPosition;
-    private float _startPositionZ;
-
-    private void Start()
-    {
-        _startPositionZ = transform.position.z;
-    }
+    private int _currentWaypoint = 0;
 
     private void Update()
     {
-        var position = transform.position;
-        float positionCorrectionFactor = 0.1f;
-
-        if (transform.position.z > _positionEndRoad.position.z)
+        if (transform.position == _waipoints[_currentWaypoint].position)
         {
-            position.z = _positionEndRoad.position.z - positionCorrectionFactor;
-            _speed *= -1;
-        }
-        else if(transform.position.z < _startPositionZ)
-        {
-            position.z = _startPositionZ + positionCorrectionFactor;
-            _speed *= -1;
+            _currentWaypoint = (_currentWaypoint + 1) % _waipoints.Length;
         }
 
-        _movementPosition.z = _speed * Time.deltaTime;
-        transform.Translate(_movementPosition);
+        transform.position = Vector3.MoveTowards(transform.position, _waipoints[_currentWaypoint].position, _speed * Time.deltaTime);
     }
 }

@@ -2,38 +2,21 @@ using UnityEngine;
 
 public class Scale : MonoBehaviour
 {
-    [SerializeField] private float _scaleSpeed = 1f;
-    [SerializeField] private float _minScale = 0.5f;
-    [SerializeField] private float _maxScale = 2f;
+    private float _speedScale = 0.005f;
+    private Vector3 scaleChange;
 
-    private Vector3 _targetScale;
-    private bool _isIncreases = true;
-
-    private void Start()
+    private void Awake()
     {
-        _targetScale = transform.localScale;
+        scaleChange = new Vector3(-_speedScale, -_speedScale, -_speedScale);
     }
 
-    private void Update()
+    void Update()
     {
-        var scaleFactor = 1 + _scaleSpeed * Time.deltaTime;
+        transform.localScale += scaleChange;
 
-        if (_isIncreases && _targetScale.x >= _maxScale)
+        if (transform.localScale.y < 0.1f || transform.localScale.y > 1.0f)
         {
-            _isIncreases = false;
+            scaleChange = -scaleChange;
         }
-
-        if (_isIncreases == false && _targetScale.x <= _minScale)
-        {
-            _isIncreases = true;
-        }
-
-        _targetScale *= _isIncreases ? scaleFactor : 1f / scaleFactor;
-
-        _targetScale.x = Mathf.Clamp(_targetScale.x, _minScale, _maxScale);
-        _targetScale.y = Mathf.Clamp(_targetScale.y, _minScale, _maxScale);
-        _targetScale.z = Mathf.Clamp(_targetScale.z, _minScale, _maxScale);
-
-        transform.localScale = _targetScale;
     }
 }
