@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Counter : MonoBehaviour
@@ -8,48 +6,39 @@ public class Counter : MonoBehaviour
     [SerializeField] float _delay = 0.5f;
 
     private int _leftButtonMouse = 0;
-    private int _value = 1;
     private int _number;
-    private bool _isCoroutineRunning = false;
+    private bool _isLooping = true;
     private IEnumerator _myCorutine;
-    private WaitForSeconds _wait;
 
     private void Start()
     {
-        _wait = new WaitForSeconds(_delay);
-        _myCorutine = Countdown();
+        _myCorutine = Countdown(_delay);
+
+        StartCoroutine(_myCorutine);
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(_leftButtonMouse))
         {
-            _value++;
-        }
-
-        if (_value % 2 == 0)
-        {
-            if (_isCoroutineRunning == false)
-            {
-                StartCoroutine(_myCorutine);
-
-                _isCoroutineRunning = true;
-            }
-        }
-        else
-        {
-            StopCoroutine(_myCorutine);
-
-            _isCoroutineRunning = false;
+            _isLooping = !_isLooping;
+            enabled = _isLooping;
         }
     }
 
-    private IEnumerator Countdown()
+    private void OnDisable()
     {
-        while (true)
+        StopCoroutine(_myCorutine);
+    }
+
+    private IEnumerator Countdown(float delay)
+    {
+        WaitForSeconds delayTime = new WaitForSeconds(delay);
+
+        while (enabled)
         {
-            yield return _wait;
             Debug.Log(_number++);
+            yield return delayTime;
         }
     }
 }
