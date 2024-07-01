@@ -28,12 +28,15 @@ public class Counter : MonoBehaviour
 
     private void OnDisable()
     {
-        StopCoroutine(_myCorutine);
+        if (_myCorutine != null)
+        {
+            StopCoroutine(_myCorutine);
+        }
     }
 
     private IEnumerator Countdown(float delay)
     {
-        WaitForSeconds delayTime = new WaitForSeconds(delay);
+        WaitForSecondsRealtime delayTime = new WaitForSecondsRealtime(delay);
 
         while (enabled)
         {
