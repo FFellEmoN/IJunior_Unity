@@ -1,36 +1,37 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Counter : MonoBehaviour
 {
-    [SerializeField] float _delay = 0.5f;
+    [SerializeField] private float _delay = 0.5f;
+    [SerializeField] private TextMeshProUGUI _text;
 
     private int _leftButtonMouse = 0;
     private int _number;
-    private bool _isLooping = true;
     private IEnumerator _myCorutine;
 
     private void Start()
     {
-        _myCorutine = Countdown(_delay);
-
-        StartCoroutine(_myCorutine);
+        _text.text = _number.ToString("");
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(_leftButtonMouse))
         {
-            _isLooping = !_isLooping;
-            enabled = _isLooping;
-        }
-    }
+            if(_myCorutine != null)
+            {
+                StopCoroutine(_myCorutine);
 
-    private void OnDisable()
-    {
-        if (_myCorutine != null)
-        {
-            StopCoroutine(_myCorutine);
+                _myCorutine = null;
+            }
+            else
+            {
+                _myCorutine = Countdown(_delay);
+
+                StartCoroutine(_myCorutine);
+            }
         }
     }
 
@@ -40,8 +41,16 @@ public class Counter : MonoBehaviour
 
         while (enabled)
         {
-            Debug.Log(_number++);
+            _number++;
+
+            DisplayCountdown(_number);
+            
             yield return delayTime;
         }
+    }
+
+    private void DisplayCountdown(int number)
+    {
+        _text.text = number.ToString("");
     }
 }
