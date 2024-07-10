@@ -5,15 +5,15 @@ using UnityEngine;
 public class Counter : MonoBehaviour
 {
     [SerializeField] private float _delay = 0.5f;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private Renderer _renderer;
 
+    public int Number { private set; get; }
     private int _leftButtonMouse = 0;
-    private int _number;
     private IEnumerator _myCorutine;
 
     private void Start()
     {
-        _text.text = _number.ToString("");
+        _renderer.DisplayCountdown(Number);
     }
 
     private void Update()
@@ -41,16 +41,8 @@ public class Counter : MonoBehaviour
 
         while (enabled)
         {
-            _number++;
-
-            DisplayCountdown(_number);
-            
+            _renderer.DisplayCountdown(++Number);
             yield return delayTime;
         }
-    }
-
-    private void DisplayCountdown(int number)
-    {
-        _text.text = number.ToString("");
     }
 }
