@@ -7,30 +7,30 @@ public class Counter : MonoBehaviour
     [SerializeField] private float _delay = 0.5f;
     [SerializeField] private Renderer _renderer;
 
-    public int Number { private set; get; }
+    private int _number;
     private int _leftButtonMouse = 0;
-    private IEnumerator _myCorutine;
+    private IEnumerator _corutineCountdown;
 
     private void Start()
     {
-        _renderer.DisplayCountdown(Number);
+        _renderer.DisplayCountdown(_number);
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(_leftButtonMouse))
         {
-            if(_myCorutine != null)
+            if(_corutineCountdown != null)
             {
-                StopCoroutine(_myCorutine);
+                StopCoroutine(_corutineCountdown);
 
-                _myCorutine = null;
+                _corutineCountdown = null;
             }
             else
             {
-                _myCorutine = Countdown(_delay);
+                _corutineCountdown = Countdown(_delay);
 
-                StartCoroutine(_myCorutine);
+                StartCoroutine(_corutineCountdown);
             }
         }
     }
@@ -41,7 +41,7 @@ public class Counter : MonoBehaviour
 
         while (enabled)
         {
-            _renderer.DisplayCountdown(++Number);
+            _renderer.DisplayCountdown(++_number);
             yield return delayTime;
         }
     }
