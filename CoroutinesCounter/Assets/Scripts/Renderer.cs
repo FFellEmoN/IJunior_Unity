@@ -4,14 +4,20 @@ using UnityEngine;
 public class Renderer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private Counter _counter;
 
-    private void Start()
+    private void OnEnable()
     {
-        Counter.CountdownStarted += DisplayCountdown;
+        _counter.CountdownStarted += DisplayCountdown;
     }
 
-    public void DisplayCountdown(int number)
+    private void OnDisable()
     {
-        _text.text = number.ToString("");
+        _counter.CountdownStarted -= DisplayCountdown;
+    }
+
+    public void DisplayCountdown()
+    {
+        _text.text = _counter.Number.ToString("");
     }
 }

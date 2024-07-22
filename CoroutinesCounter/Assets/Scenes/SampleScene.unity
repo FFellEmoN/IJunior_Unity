@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1677888196}
+  _counter: {fileID: 1677888195}
 --- !u!1 &1532243776
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -37}
+  m_AnchoredPosition: {x: 10, y: -29}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677888195
@@ -477,7 +478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delay: 0.5
-  _renderer: {fileID: 1160781220}
 --- !u!114 &1677888196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 72}
+  m_AnchoredPosition: {x: 25, y: 99}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122922806
@@ -633,9 +633,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0414\u043B\u044F \u0442\u043E\u0433\u043E, \u0447\u0442\u043E\u0431\u044B
-    \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0441\u0447\u0435\u0442\u0447\u0438\u043A
-    \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u043B\u0435\u0432\u0443\u044E \u043A\u043D\u043E\u043F\u043A\u0443
-    \u043C\u044B\u0448\u0438"
+    \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0438\u043B\u0438 \u043E\u0442\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+    \u0441\u0447\u0435\u0442\u0447\u0438\u043A \u043D\u0430\u0436\u043C\u0438\u0442\u0435
+    \u043B\u0435\u0432\u0443\u044E \u043A\u043D\u043E\u043F\u043A\u0443 \u043C\u044B\u0448\u0438."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
