@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,31 +5,23 @@ public class Counter : MonoBehaviour
 {
     [SerializeField] private float _delay = 0.5f;
 
-    public event Action CountdownStarted;
-    public int Number { private set; get; }
+    public Coroutine _coroutine;
     private int _leftButtonMouse = 0;
-    private IEnumerator _corutineCountdown;
-
-    private void Start()
-    {
-        CountdownStarted?.Invoke();
-    }
+    public int Number { get; private set; }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(_leftButtonMouse))
         {
-            if(_corutineCountdown != null)
+            if(_coroutine != null)
             {
-                StopCoroutine(_corutineCountdown);
+                StopCoroutine(_coroutine);
 
-                _corutineCountdown = null;
+                _coroutine = null;
             }
             else
             {
-                _corutineCountdown = Countdown(_delay);
-
-                StartCoroutine(_corutineCountdown);
+                _coroutine = StartCoroutine(Countdown(_delay));
             }
         }
     }
@@ -42,7 +33,6 @@ public class Counter : MonoBehaviour
         while (enabled)
         {
             Number++;
-            CountdownStarted?.Invoke();
             yield return delayTime;
         }
     }

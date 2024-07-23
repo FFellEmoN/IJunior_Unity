@@ -31,7 +31,7 @@ public class DividerCube : MonoBehaviour
 
                 for (int i = 0; i < randomValue; i++)
                 {
-                    _cubeCreator.Create(hit.transform.position, hit.transform.localScale);
+                    _cubeCreator.Create(hit);
                 }
             }
         }
