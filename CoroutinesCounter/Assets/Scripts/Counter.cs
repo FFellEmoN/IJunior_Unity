@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,9 +6,15 @@ public class Counter : MonoBehaviour
 {
     [SerializeField] private float _delay = 0.5f;
 
-    public Coroutine _coroutine;
+    public event Action<int> Changed;
+    private Coroutine _coroutine;
     private int _leftButtonMouse = 0;
-    public int Number { get; private set; }
+    private int _number;
+
+    private void Start()
+    {
+        Changed?.Invoke(_number);
+    }
 
     private void Update()
     {
@@ -32,7 +39,8 @@ public class Counter : MonoBehaviour
 
         while (enabled)
         {
-            Number++;
+            _number++;
+            Changed?.Invoke(_number);
             yield return delayTime;
         }
     }

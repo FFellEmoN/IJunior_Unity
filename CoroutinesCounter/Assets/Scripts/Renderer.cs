@@ -6,13 +6,18 @@ public class Renderer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Counter _counter;
 
-    private void Update()
+    private void OnEnable()
     {
-        DisplayCountdown();
+        _counter.Changed += DisplayCountdown;
     }
 
-    public void DisplayCountdown()
+    private void OnDisable()
     {
-        _text.text = _counter.Number.ToString("");
+        _counter.Changed -= DisplayCountdown;
+    }
+
+    public void DisplayCountdown(int number)
+    {
+        _text.text = number.ToString("");
     }
 }
