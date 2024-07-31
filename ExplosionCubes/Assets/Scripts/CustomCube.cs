@@ -2,42 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomCube : MonoBehaviour
+public class CustomCube
 {
-    private float _cubeSize;// нужно ли поле или можно сделать локлальным
+    [SerializeField] private int _probabilityDivision;
 
     private GameObject _cube;
     private GameObject _destroyedCube;
-    private Color _cubeColor;
+    private float _mass = 1;
 
-    private MeshRenderer meshRenderer;
-
-    public CustomCube(GameObject destroyCube, Color color)
+    public CustomCube(GameObject destroyedCube, float probabilityDestroyedCube)
     {
-        _destroyedCube = destroyCube;
         _cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        _cubeColor = color;
-        SetPosition();
+        _destroyedCube = destroyedCube;
+        
         SetLocalScale();
-        SetColor();
+        SetPosition();
+       // SetColor(color);
+        SetTag();
+        SetProbability(probabilityDestroyedCube);
 
-        // ----------
-        Rigidbody rb = cube.AddComponent<Rigidbody>();
-        rb.mass = 1f;
+        _cube.AddComponent<DividableObject>();
+       
+        Rigidbody rb = _cube.AddComponent<Rigidbody>();
+
+        rb.mass = _mass;
+    }
+
+    public GameObject Get()
+    {
+        return _cube;
+    }
+
+    public void SetColor(Material color)
+    {
+        MeshRenderer meshRenderer = _cube.GetComponent<MeshRenderer>();
+        meshRenderer.material = color;
     }
 
     private void SetLocalScale()
     {
-        _cube.transform.localScale = new Vector3(_cubeSize, _cubeSize, _cubeSize);
-    }
-
-    private void SetColor()
-    {
-        _cube.GetComponent<MeshRenderer>().material.color = _cubeColor;
+        Vector3 sizeDestroyCube = _destroyedCube.transform.localScale;
+        int dividerHalf = 2;
+        _cube.transform.localScale = sizeDestroyCube / dividerHalf;
     }
 
     private void SetPosition()
     {
         _cube.transform.position = _destroyedCube.transform.position;
+    }
+
+    private void SetTag()
+    {
+        _cube.tag = _destroyedCube.tag;
+    }
+
+    private void SetProbability(float probability)
+    {
+        float denominator = 2;
+        ProbabilityDivision probabilityCube = _cube.AddComponent<ProbabilityDivision>();
+        float newProbability = probability / denominator;
+
+        probabilityCube.SetValue(newProbability);
     }
 }

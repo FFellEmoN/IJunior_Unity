@@ -60,10 +60,11 @@
     <Analyzer Include="D:\UnityAll\Unity Hub\2022.3.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\RandomNumber.cs" />
-    <Compile Include="Assets\Scripts\CubeCreator.cs" />
+    <Compile Include="Assets\Scripts\ChangingColor.cs" />
+    <Compile Include="Assets\Scripts\EmittedBeam.cs" />
+    <Compile Include="Assets\Scripts\DividableObject.cs" />
     <Compile Include="Assets\Scripts\CustomCube.cs" />
-    <Compile Include="Assets\Scripts\DividerCube.cs" />
+    <Compile Include="Assets\Scripts\ProbabilityDivision.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

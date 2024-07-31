@@ -16,7 +16,7 @@ public class Renderer : MonoBehaviour
         _counter.Changed -= DisplayCountdown;
     }
 
-    public void DisplayCountdown(int number)
+    private void DisplayCountdown(int number)
     {
         _text.text = number.ToString("");
     }
