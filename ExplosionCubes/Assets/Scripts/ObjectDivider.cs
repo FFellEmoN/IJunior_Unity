@@ -12,18 +12,12 @@ public class ObjectDivider : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_emittedBeam != null)
-        {
             _emittedBeam.BeamHitObject += TryDivide;
-        }
     }
 
     private void OnDisable()
     {
-        if (_emittedBeam != null)
-        {
             _emittedBeam.BeamHitObject -= TryDivide;
-        }
     }
 
     public void TryDivide(GameObject destroyedCube)
@@ -34,6 +28,7 @@ public class ObjectDivider : MonoBehaviour
         if (randomChance < valueProbality)
         {
             Destroy(destroyedCube);
+
             int numberCubs = UnityEngine.Random.Range(_minNumberCubs, _maxNumberCubs);
 
             for (int i = 0; i < numberCubs; i++)
@@ -45,6 +40,7 @@ public class ObjectDivider : MonoBehaviour
         else
         {
             Debug.Log(this.name + " - Объект не делится. Вероятность " + valueProbality + "%, случайное число: " + randomChance);
+
             Destroy(destroyedCube);
         }
     }

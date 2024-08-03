@@ -5,10 +5,8 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField] private EmittedBeam _emittedBeam;
-    private float _explosionForce = 1000f;
-
-    private float _explosionRadius = 5f;
-    private Coroutine _coroutine;
+    [SerializeField] private float _explosionForce;
+    [SerializeField] private float _explosionRadius;
 
     private void OnEnable()
     {
@@ -29,6 +27,7 @@ public class Explosion : MonoBehaviour
         foreach (Collider cube in colliders)
         {
             Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
+
             if (rigidbodyCube != null)
             {
                 rigidbodyCube.AddExplosionForce(_explosionForce, explosionPosition, _explosionRadius);

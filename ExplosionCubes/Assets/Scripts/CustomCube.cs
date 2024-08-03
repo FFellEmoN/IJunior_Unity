@@ -6,13 +6,13 @@ public class CustomCube
 {
     [SerializeField] private int _probabilityDivision;
 
-    private GameObject _cube;
+    private GameObject _newCube;
     private GameObject _destroyedCube;
     private float _mass = 1;
 
     public CustomCube(GameObject destroyedCube, float probabilityDestroyedCube)
     {
-        _cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        _newCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         _destroyedCube = destroyedCube;
         
         SetLocalScale();
@@ -20,13 +20,13 @@ public class CustomCube
         SetTag();
         SetProbability(probabilityDestroyedCube);
        
-        Rigidbody rb = _cube.AddComponent<Rigidbody>();
+        Rigidbody rb = _newCube.AddComponent<Rigidbody>();
         rb.mass = _mass;
     }
 
     public void SetColor(Material color)
     {
-        MeshRenderer meshRenderer = _cube.GetComponent<MeshRenderer>();
+        MeshRenderer meshRenderer = _newCube.GetComponent<MeshRenderer>();
         meshRenderer.material = color;
     }
 
@@ -34,23 +34,23 @@ public class CustomCube
     {
         Vector3 sizeDestroyCube = _destroyedCube.transform.localScale;
         int dividerHalf = 2;
-        _cube.transform.localScale = sizeDestroyCube / dividerHalf;
+        _newCube.transform.localScale = sizeDestroyCube / dividerHalf;
     }
 
     private void SetPosition()
     {
-        _cube.transform.position = _destroyedCube.transform.position;
+        _newCube.transform.position = _destroyedCube.transform.position;
     }
 
     private void SetTag()
     {
-        _cube.tag = _destroyedCube.tag;
+        _newCube.tag = _destroyedCube.tag;
     }
 
     private void SetProbability(float probability)
     {
         float denominator = 2;
-        ProbabilityDivision probabilityCube = _cube.AddComponent<ProbabilityDivision>();
+        ProbabilityDivision probabilityCube = _newCube.AddComponent<ProbabilityDivision>();
         float newProbability = probability / denominator;
 
         probabilityCube.SetValue(newProbability);

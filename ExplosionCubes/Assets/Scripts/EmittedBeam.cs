@@ -15,21 +15,28 @@ public class EmittedBeam : MonoBehaviour
 
     private void Update()
     {
-        _ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit;
-
-        Debug.DrawRay(_ray.origin, _ray.direction * _maxDistance, Color.magenta);
-
-        if (Input.GetMouseButtonDown(_lefButtonMouse))
+        if (_camera != null)
         {
-            if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
+            _ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+            RaycastHit hit;
+
+            Debug.DrawRay(_ray.origin, _ray.direction * _maxDistance, Color.magenta);
+
+            if (Input.GetMouseButtonDown(_lefButtonMouse))
             {
-                if (hit.transform.gameObject.CompareTag("Cube")) 
+                if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
                 {
-                    BeamHitObject?.Invoke(hit.transform.gameObject);
+                    if (hit.transform.gameObject.CompareTag("Cube"))
+                    {
+                        BeamHitObject?.Invoke(hit.transform.gameObject);
+                    }
                 }
             }
+        }
+        else
+        {
+            Debug.Log("Инициализируйте камеру.");
         }
     }
 }
