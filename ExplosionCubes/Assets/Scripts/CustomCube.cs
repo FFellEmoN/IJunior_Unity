@@ -17,20 +17,11 @@ public class CustomCube
         
         SetLocalScale();
         SetPosition();
-       // SetColor(color);
         SetTag();
         SetProbability(probabilityDestroyedCube);
-
-        _cube.AddComponent<DividableObject>();
        
         Rigidbody rb = _cube.AddComponent<Rigidbody>();
-
         rb.mass = _mass;
-    }
-
-    public GameObject Get()
-    {
-        return _cube;
     }
 
     public void SetColor(Material color)

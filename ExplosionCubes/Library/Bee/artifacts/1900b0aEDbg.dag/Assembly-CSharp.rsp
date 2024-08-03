@@ -354,8 +354,9 @@
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/ChangingColor.cs"
 "Assets/Scripts/CustomCube.cs"
-"Assets/Scripts/DividableObject.cs"
 "Assets/Scripts/EmittedBeam.cs"
+"Assets/Scripts/Explosion.cs"
+"Assets/Scripts/ObjectDivider.cs"
 "Assets/Scripts/ProbabilityDivision.cs"
 -langversion:9.0
 
