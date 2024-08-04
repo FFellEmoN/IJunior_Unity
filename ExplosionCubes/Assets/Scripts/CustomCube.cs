@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomCube
 {
-    [SerializeField] private int _probabilityDivision;
-
     private GameObject _newCube;
     private GameObject _destroyedCube;
     private float _mass = 1;

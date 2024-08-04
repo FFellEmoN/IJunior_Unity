@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EmittedBeam : MonoBehaviour
@@ -12,10 +9,11 @@ public class EmittedBeam : MonoBehaviour
     public event Action<GameObject> BeamHitObject;
     private Ray _ray;
     private int _lefButtonMouse = 0;
+    private string _tagCube = "Cube";
 
     private void Update()
     {
-        if (_camera != null)
+        if (_camera != null  && _maxDistance > 0)
         {
             _ray = _camera.ScreenPointToRay(Input.mousePosition);
 
@@ -27,7 +25,7 @@ public class EmittedBeam : MonoBehaviour
             {
                 if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.gameObject.CompareTag("Cube"))
+                    if (hit.transform.gameObject.CompareTag(_tagCube))
                     {
                         BeamHitObject?.Invoke(hit.transform.gameObject);
                     }
@@ -36,7 +34,7 @@ public class EmittedBeam : MonoBehaviour
         }
         else
         {
-            Debug.Log("Инициализируйте камеру.");
+            Debug.Log("Камера не инициализированна или неверно задана дистанция камеры.");
         }
     }
 }

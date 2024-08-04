@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -10,28 +8,34 @@ public class Explosion : MonoBehaviour
 
     private void OnEnable()
     {
-        _emittedBeam.BeamHitObject += TriggerExplosion;
+        _emittedBeam.BeamHitObject += OnBeamHitObject;
     }
 
     private void OnDisable()
     {
-        _emittedBeam.BeamHitObject -= TriggerExplosion;
+        _emittedBeam.BeamHitObject -= OnBeamHitObject;
     }
 
-    public void TriggerExplosion(GameObject gameObject)
+    private void OnBeamHitObject(GameObject destroyedCube)
     {
-        Vector3 explosionPosition = gameObject.transform.position;
+        if (_explosionForce > 0 && _explosionRadius > 0) {
+            Vector3 explosionPosition = destroyedCube.transform.position;
 
-        Collider[] colliders = Physics.OverlapSphere(explosionPosition, _explosionRadius);
+            Collider[] colliders = Physics.OverlapSphere(explosionPosition, _explosionRadius);
 
-        foreach (Collider cube in colliders)
-        {
-            Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
-
-            if (rigidbodyCube != null)
+            foreach (Collider cube in colliders)
             {
-                rigidbodyCube.AddExplosionForce(_explosionForce, explosionPosition, _explosionRadius);
+                Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
+
+                if (rigidbodyCube != null)
+                {
+                    rigidbodyCube.AddExplosionForce(_explosionForce, explosionPosition, _explosionRadius);
+                }
             }
+        }
+        else
+        {
+            Debug.Log("Неверно введины данные радиуса или силы взрыва.");
         }
     }
 }

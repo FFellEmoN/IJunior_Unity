@@ -12,15 +12,15 @@ public class ObjectDivider : MonoBehaviour
 
     private void OnEnable()
     {
-            _emittedBeam.BeamHitObject += TryDivide;
+            _emittedBeam.BeamHitObject += OnBeamHitObject;
     }
 
     private void OnDisable()
     {
-            _emittedBeam.BeamHitObject -= TryDivide;
+            _emittedBeam.BeamHitObject -= OnBeamHitObject;
     }
 
-    public void TryDivide(GameObject destroyedCube)
+    private void OnBeamHitObject(GameObject destroyedCube)
     {
         float randomChance = UnityEngine.Random.Range(0, _maxProcents);
         float valueProbality = destroyedCube.GetComponent<ProbabilityDivision>().GetValue();
