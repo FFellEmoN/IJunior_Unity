@@ -6,10 +6,9 @@ public class EmittedBeam : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private float _maxDistance = 100;
 
-    public event Action<GameObject> BeamHitObject;
     private Ray _ray;
     private int _lefButtonMouse = 0;
-    private string _tagCube = "Cube";
+    public event Action<Vector3, Vector3, float> BeamHitCube;
 
     private void Update()
     {
@@ -25,9 +24,16 @@ public class EmittedBeam : MonoBehaviour
             {
                 if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.gameObject.CompareTag(_tagCube))
+                    GameObject affectedGameObject = hit.transform.gameObject;
+
+                    if (affectedGameObject.GetComponent<CustomCube>())
                     {
-                        BeamHitObject?.Invoke(hit.transform.gameObject);
+                        BeamHitCube?.Invoke(
+                            affectedGameObject.transform.position, 
+                            affectedGameObject.transform.localScale,
+                            affectedGameObject.GetComponent<ProbabilityDivision>().GetValue());
+
+                        Destroy(affectedGameObject);
                     }
                 }
             }

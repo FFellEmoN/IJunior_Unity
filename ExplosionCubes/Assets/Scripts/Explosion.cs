@@ -1,31 +1,29 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField] private EmittedBeam _emittedBeam;
+    [SerializeField] private CubeDivider _cubeDivider;
     [SerializeField] private float _explosionForce;
     [SerializeField] private float _explosionRadius;
 
     private void OnEnable()
     {
-        _emittedBeam.BeamHitObject += OnBeamHitObject;
+        _cubeDivider.CreatedCustomCube += OnCreatedCustomCube;
     }
 
     private void OnDisable()
     {
-        _emittedBeam.BeamHitObject -= OnBeamHitObject;
+        _cubeDivider.CreatedCustomCube -= OnCreatedCustomCube;
     }
 
-    private void OnBeamHitObject(GameObject destroyedCube)
+    private void OnCreatedCustomCube(List<Collider> customCubesColliders, Vector3 explosionPosition)
     {
-        if (_explosionForce > 0 && _explosionRadius > 0) {
-            Vector3 explosionPosition = destroyedCube.transform.position;
-
-            Collider[] colliders = Physics.OverlapSphere(explosionPosition, _explosionRadius);
-
-            foreach (Collider cube in colliders)
+        if (_explosionForce > 0 && _explosionRadius > 0)
+        {
+            foreach (Collider customCubeCollider in customCubesColliders)
             {
-                Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
+                Rigidbody rigidbodyCube = customCubeCollider.GetComponent<Rigidbody>();
 
                 if (rigidbodyCube != null)
                 {

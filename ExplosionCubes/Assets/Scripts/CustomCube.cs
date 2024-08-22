@@ -1,54 +1,82 @@
+using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
-public class CustomCube
+public class CustomCube : MonoBehaviour
 {
-    private GameObject _newCube;
-    private GameObject _destroyedCube;
-    private float _mass = 1;
+    [SerializeField] private List<Material> _colorsCubes;
+    [SerializeField] private ProbabilityDivision _probabilityCube;
 
-    public CustomCube(GameObject destroyedCube, float probabilityDestroyedCube)
+    private Vector3 _localScaleDestroyedCube;
+    private Vector3 _transformPositionDestroyedCube;
+    private float _pobabilityDestroyedCube;
+    private bool _isDestroyed = false;
+
+    private void Start()
     {
-        _newCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        _destroyedCube = destroyedCube;
-        
-        SetLocalScale();
-        SetPosition();
-        SetTag();
-        SetProbability(probabilityDestroyedCube);
-       
-        Rigidbody rb = _newCube.AddComponent<Rigidbody>();
-        rb.mass = _mass;
+        if (_isDestroyed)
+        {
+            SetLocalScale();
+            SetPosition();
+            SetProbability();
+            SetColor();
+        }
     }
 
-    public void SetColor(Material color)
+    public void SetTrgger()
     {
-        MeshRenderer meshRenderer = _newCube.GetComponent<MeshRenderer>();
-        meshRenderer.material = color;
+        _isDestroyed = true;
+    }
+
+    public void SetLocalScaleDestroyedCube(Vector3 localScaleDestroyedCube)
+    {
+        _localScaleDestroyedCube = localScaleDestroyedCube;
+    }
+
+    public void SetPositionDestroyedCube(Vector3 transformPositionDestroyedCube)
+    {
+        _transformPositionDestroyedCube = transformPositionDestroyedCube;
+    }
+
+    public void SetProbabilityDestroyedCube(float pobabilityDestroyedCube)
+    {
+        _pobabilityDestroyedCube = pobabilityDestroyedCube;
     }
 
     private void SetLocalScale()
     {
-        Vector3 sizeDestroyCube = _destroyedCube.transform.localScale;
+        ;
         int dividerHalf = 2;
-        _newCube.transform.localScale = sizeDestroyCube / dividerHalf;
+
+        transform.localScale = _localScaleDestroyedCube / dividerHalf;
     }
 
     private void SetPosition()
     {
-        _newCube.transform.position = _destroyedCube.transform.position;
+        transform.position = _transformPositionDestroyedCube;
     }
 
-    private void SetTag()
-    {
-        _newCube.tag = _destroyedCube.tag;
-    }
-
-    private void SetProbability(float probability)
+    private void SetProbability()
     {
         float denominator = 2;
-        ProbabilityDivision probabilityCube = _newCube.AddComponent<ProbabilityDivision>();
-        float newProbability = probability / denominator;
 
-        probabilityCube.SetValue(newProbability);
+        float newProbability = _pobabilityDestroyedCube / denominator;
+
+        _probabilityCube.SetValue(newProbability);
+    }
+
+    private void SetColor()
+    {
+        if (_colorsCubes.Count > 0)
+        {
+            int randomValue = Random.Range(0, _colorsCubes.Count);
+
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.material = _colorsCubes[randomValue];
+        }
+        else
+        {
+            Debug.Log("Список матерьялов пуст.");
+        }
     }
 }

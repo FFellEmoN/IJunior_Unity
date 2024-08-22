@@ -355,11 +355,10 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/Scripts/ColorChanger.cs"
+"Assets/Scripts/CubeDivider.cs"
 "Assets/Scripts/CustomCube.cs"
 "Assets/Scripts/EmittedBeam.cs"
 "Assets/Scripts/Explosion.cs"
-"Assets/Scripts/ObjectDivider.cs"
 "Assets/Scripts/ProbabilityDivision.cs"
 -langversion:9.0
 
