@@ -4,7 +4,7 @@ using UnityEngine;
 public class EmittedBeam : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private float _maxDistance = 100;
+    [SerializeField, Min(0)] private float _maxDistance = 100;
 
     private Ray _ray;
     private int _lefButtonMouse = 0;
@@ -12,35 +12,41 @@ public class EmittedBeam : MonoBehaviour
 
     private void Update()
     {
-        if (_camera != null  && _maxDistance > 0)
+        if (_camera != null)
         {
-            _ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hits;
 
-            RaycastHit hit;
-
+            _ray = _camera.ScreenPointToRay(Input.mousePosition); 
             Debug.DrawRay(_ray.origin, _ray.direction * _maxDistance, Color.magenta);
 
             if (Input.GetMouseButtonDown(_lefButtonMouse))
             {
-                if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
+                hits = Physics.RaycastAll(_ray, _maxDistance);
+                Array.Sort(hits, (hit1, hit2) => hit1.distance.CompareTo(hit2.distance));
+
+                if (hits.Length > 0)
                 {
-                    GameObject affectedGameObject = hit.transform.gameObject;
-
-                    if (affectedGameObject.GetComponent<CustomCube>())
+                    foreach (RaycastHit hit in hits)
                     {
-                        BeamHitCube?.Invoke(
-                            affectedGameObject.transform.position, 
-                            affectedGameObject.transform.localScale,
-                            affectedGameObject.GetComponent<ProbabilityDivision>().GetValue());
+                        GameObject receivedGameObject = hit.transform.gameObject;
 
-                        Destroy(affectedGameObject);
+                        if (receivedGameObject.GetComponent<CustomCube>())
+                        {
+                            BeamHitCube?.Invoke(
+                                receivedGameObject.transform.position,
+                                receivedGameObject.transform.localScale,
+                                receivedGameObject.GetComponent<ProbabilityDivision>().GetValue());
+
+                            Destroy(receivedGameObject);
+                            break;
+                        }
                     }
                 }
             }
         }
         else
         {
-            Debug.Log("Камера не инициализированна или неверно задана дистанция камеры.");
+            Debug.Log($"{nameof(_camera)} = null");
         }
     }
 }

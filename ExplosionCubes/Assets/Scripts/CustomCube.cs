@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class CustomCube : MonoBehaviour
@@ -7,62 +6,35 @@ public class CustomCube : MonoBehaviour
     [SerializeField] private List<Material> _colorsCubes;
     [SerializeField] private ProbabilityDivision _probabilityCube;
 
-    private Vector3 _localScaleDestroyedCube;
-    private Vector3 _transformPositionDestroyedCube;
-    private float _pobabilityDestroyedCube;
-    private bool _isDestroyed = false;
-
     private void Start()
     {
-        if (_isDestroyed)
-        {
-            SetLocalScale();
-            SetPosition();
-            SetProbability();
-            SetColor();
-        }
+        SetColor();
     }
 
-    public void SetTrgger()
+    public void SetLocalScale(Vector3 localScaleDestroyedCube)
     {
-        _isDestroyed = true;
-    }
-
-    public void SetLocalScaleDestroyedCube(Vector3 localScaleDestroyedCube)
-    {
-        _localScaleDestroyedCube = localScaleDestroyedCube;
-    }
-
-    public void SetPositionDestroyedCube(Vector3 transformPositionDestroyedCube)
-    {
-        _transformPositionDestroyedCube = transformPositionDestroyedCube;
-    }
-
-    public void SetProbabilityDestroyedCube(float pobabilityDestroyedCube)
-    {
-        _pobabilityDestroyedCube = pobabilityDestroyedCube;
-    }
-
-    private void SetLocalScale()
-    {
-        ;
         int dividerHalf = 2;
 
-        transform.localScale = _localScaleDestroyedCube / dividerHalf;
+        transform.localScale = localScaleDestroyedCube / dividerHalf;
     }
 
-    private void SetPosition()
+    public void SetPosition(Vector3 transformPositionDestroyedCube)
     {
-        transform.position = _transformPositionDestroyedCube;
+        transform.position = transformPositionDestroyedCube;
     }
 
-    private void SetProbability()
+    public void SetProbability(float pobabilityDestroyedCube)
     {
-        float denominator = 2;
+        if (_probabilityCube != null) {
+            float denominator = 2;
+            float newProbability = pobabilityDestroyedCube / denominator;
 
-        float newProbability = _pobabilityDestroyedCube / denominator;
-
-        _probabilityCube.SetValue(newProbability);
+            _probabilityCube.SetValue(newProbability);
+        }
+        else
+        {
+            Debug.Log($"{nameof(_probabilityCube)} = null");
+        }
     }
 
     private void SetColor()
@@ -76,7 +48,7 @@ public class CustomCube : MonoBehaviour
         }
         else
         {
-            Debug.Log("Список матерьялов пуст.");
+            Debug.Log($"{nameof(_colorsCubes)} is eampty.");
         }
     }
 }

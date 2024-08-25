@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ProbabilityDivision : MonoBehaviour
 {
-    [SerializeField] private float _value;
+    [SerializeField, Range(0f, 100f)] private float _value;
 
     public void SetValue(float value)
     {

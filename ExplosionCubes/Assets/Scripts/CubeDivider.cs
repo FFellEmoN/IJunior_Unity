@@ -13,14 +13,33 @@ public class CubeDivider : MonoBehaviour
     private List<Collider> _customCubesColliders;
     public event Action<List<Collider>, Vector3> CreatedCustomCube;
 
+    private void Start()
+    {
+        _customCubesColliders = new List<Collider>();
+    }
+
     private void OnEnable()
     {
-        _emittedBeam.BeamHitCube += OnBeamHitCube;
+        if (_emittedBeam != null)
+        {
+            _emittedBeam.BeamHitCube += OnBeamHitCube;
+        }
+        else
+        {
+            Debug.Log($"{nameof(_emittedBeam)} = null");
+        }
     }
 
     private void OnDisable()
     {
-        _emittedBeam.BeamHitCube -= OnBeamHitCube;
+        if (_emittedBeam != null)
+        {
+            _emittedBeam.BeamHitCube -= OnBeamHitCube;
+        }
+        else
+        {
+            Debug.Log($"{nameof(_emittedBeam)} = null");
+        }
     }
 
     private void OnBeamHitCube(Vector3 positionCube, Vector3 localScaleCube, float probabilityCube)
@@ -33,19 +52,32 @@ public class CubeDivider : MonoBehaviour
 
             for (int i = 0; i < numberCubs; i++)
             {
-                GameObject prefabCube = Instantiate(_prefabCube);
-                CustomCube customCube = prefabCube.GetComponent<CustomCube>();
+                if (_prefabCube != null)
+                {
+                    GameObject prefabCube = Instantiate(_prefabCube, positionCube, Quaternion.identity);
+                    CustomCube customCube = prefabCube.GetComponent<CustomCube>();
 
-                customCube.SetPositionDestroyedCube(positionCube);
-                customCube.SetLocalScaleDestroyedCube(localScaleCube);
-                customCube.SetProbabilityDestroyedCube(probabilityCube);
-                customCube.SetTrgger();
+                    customCube.SetPosition(positionCube);
+                    customCube.SetLocalScale(localScaleCube);
+                    customCube.SetProbability(probabilityCube);
 
-                _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
+                    if (prefabCube.GetComponent<Collider>())
+                    {
+                        _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
+                    }
+                    else
+                    {
+                        Debug.Log($"{prefabCube.name} не имеет компонента Collider.");
+                    }
+                }
+                else
+                {
+                    Debug.Log($"{nameof(_prefabCube)} = null");
+                }
             }
 
             CreatedCustomCube?.Invoke(_customCubesColliders, positionCube);
-            _customCubesColliders = null;
+            _customCubesColliders = new List<Collider>();
         }
         else
         {
