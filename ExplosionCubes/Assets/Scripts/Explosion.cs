@@ -41,11 +41,12 @@ public class Explosion : MonoBehaviour
 
         foreach (Collider cubeCollider in customCubesColliders)
         {
-            Rigidbody rigidbodyCubeCollider = cubeCollider.GetComponent<Rigidbody>();
-
-            if (rigidbodyCubeCollider != null)
+            if (cubeCollider.GetComponent<Rigidbody>())
             {
-                rigidbodyCubeCollider.AddExplosionForce(_Force,
+                Rigidbody rigidbodyCubeCollider = cubeCollider.GetComponent<Rigidbody>();
+
+                rigidbodyCubeCollider.AddExplosionForce(
+                    _Force,
                     explosionPosition,
                     _Radius,
                     _upwardsModifier,

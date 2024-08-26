@@ -55,19 +55,23 @@ public class CubeDivider : MonoBehaviour
                 if (_prefabCube != null)
                 {
                     GameObject prefabCube = Instantiate(_prefabCube, positionCube, Quaternion.identity);
-                    CustomCube customCube = prefabCube.GetComponent<CustomCube>();
 
-                    customCube.SetPosition(positionCube);
-                    customCube.SetLocalScale(localScaleCube);
-                    customCube.SetProbability(probabilityCube);
+                    if (prefabCube.GetComponent<CustomCube>())
+                    {
+                        CustomCube customCube = prefabCube.GetComponent<CustomCube>();
 
-                    if (prefabCube.GetComponent<Collider>())
-                    {
-                        _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
-                    }
-                    else
-                    {
-                        Debug.Log($"{prefabCube.name} не имеет компонента Collider.");
+                        customCube.SetPosition(positionCube);
+                        customCube.SetLocalScale(localScaleCube);
+                        customCube.SetProbability(probabilityCube);
+
+                        if (prefabCube.GetComponent<Collider>())
+                        {
+                            _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
+                        }
+                        else
+                        {
+                            Debug.Log($"{prefabCube.name} не имеет компонента Collider.");
+                        }
                     }
                 }
                 else
