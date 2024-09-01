@@ -6,6 +6,7 @@ public class CubeDivider : MonoBehaviour
 {
     [SerializeField] private EmittedBeam _emittedBeam;
     [SerializeField] private GameObject _prefabCube;
+    [SerializeField] private float _explosionForce;
 
     private int _minNumberCubs = 2;
     private int _maxNumberCubs = 7;
@@ -42,7 +43,7 @@ public class CubeDivider : MonoBehaviour
         }
     }
 
-    private void OnBeamHitCube(Vector3 positionCube, Vector3 localScaleCube, float probabilityCube)
+    private void OnBeamHitCube(Vector3 positionCube, Vector3 localScaleCube, float probabilityCube, float explosionRadius)
     {
         float randomChance = UnityEngine.Random.Range(0, _maxProcents);
 
@@ -63,6 +64,7 @@ public class CubeDivider : MonoBehaviour
                         customCube.SetPosition(positionCube);
                         customCube.SetLocalScale(localScaleCube);
                         customCube.SetProbability(probabilityCube);
+                        customCube.SetExplosionRadius(explosionRadius);
 
                         if (prefabCube.GetComponent<Collider>())
                         {
@@ -86,6 +88,21 @@ public class CubeDivider : MonoBehaviour
         else
         {
             Debug.Log(this.name + " - Объект не делится. Вероятность " + probabilityCube + "%, случайное число: " + randomChance);
+
+            if (_explosionForce > 0 && explosionRadius > 0)
+            {
+                Collider[] colliders = Physics.OverlapSphere(positionCube, explosionRadius);
+
+                foreach (Collider cube in colliders)
+                {
+                    Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
+
+                    if (rigidbodyCube != null)
+                    {
+                        rigidbodyCube.AddExplosionForce(_explosionForce, positionCube, explosionRadius);
+                    }
+                }
+            }
         }
     }
 }

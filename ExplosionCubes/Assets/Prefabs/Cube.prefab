@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 7344065429018411221}
   - component: {fileID: 8514561376148898887}
   - component: {fileID: 665412840182927869}
-  - component: {fileID: 6444001007372259386}
   - component: {fileID: 7065688054265766508}
+  - component: {fileID: 6444001007372259386}
+  - component: {fileID: 2894743558987504907}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Cube
@@ -135,19 +136,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6444001007372259386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5840855529983820073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa2ac68c5c81764c93eb8bb08d6adb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 100
 --- !u!114 &7065688054265766508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +154,30 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83f6f15161b981a42a3590fcc692ec51, type: 2}
   - {fileID: 2100000, guid: a05d7ef9c250b744ea8e4520b06bd8e7, type: 2}
   _probabilityCube: {fileID: 6444001007372259386}
+  _explosionRadiusCube: {fileID: 2894743558987504907}
+--- !u!114 &6444001007372259386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840855529983820073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa2ac68c5c81764c93eb8bb08d6adb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 100
+--- !u!114 &2894743558987504907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840855529983820073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b422040a92dbca64d88d721d9bc4f09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 3

@@ -8,7 +8,7 @@ public class EmittedBeam : MonoBehaviour
 
     private Ray _ray;
     private int _rayEmitter = 0;
-    public event Action<Vector3, Vector3, float> BeamHitCube;
+    public event Action<Vector3, Vector3, float, float> BeamHitCube;
 
     private void Update()
     {
@@ -36,7 +36,8 @@ public class EmittedBeam : MonoBehaviour
                             BeamHitCube?.Invoke(
                                 receivedGameObject.transform.position,
                                 receivedGameObject.transform.localScale,
-                                receivedGameObject.GetComponent<ProbabilityDivision>().GetValue());
+                                receivedGameObject.GetComponent<ProbabilityDivision>().GetValue(),
+                                receivedGameObject.GetComponent<ExplosionRadius>().GetValue());
 
                             Destroy(receivedGameObject);
                             break;

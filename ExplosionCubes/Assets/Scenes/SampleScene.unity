@@ -964,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _emittedBeam: {fileID: 227084620}
   _prefabCube: {fileID: 5840855529983820073, guid: 894be507ba2769340864d760a874a89d, type: 3}
+  _explosionForce: 1000
 --- !u!4 &1371344818
 Transform:
   m_ObjectHideFlags: 0

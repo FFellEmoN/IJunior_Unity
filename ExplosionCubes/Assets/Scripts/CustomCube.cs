@@ -5,6 +5,7 @@ public class CustomCube : MonoBehaviour
 {
     [SerializeField] private List<Material> _colorsCubes;
     [SerializeField] private ProbabilityDivision _probabilityCube;
+    [SerializeField] private ExplosionRadius _explosionRadiusCube;
 
     private void Start()
     {
@@ -34,6 +35,21 @@ public class CustomCube : MonoBehaviour
         else
         {
             Debug.Log($"{nameof(_probabilityCube)} = null");
+        }
+    }
+
+    public void SetExplosionRadius(float explosionRadiusDestroyedCube)
+    {
+        if (_explosionRadiusCube != null)
+        {
+            float multiplier = 2;
+            float newExplosionRadius = explosionRadiusDestroyedCube * multiplier;
+
+            _explosionRadiusCube.SetValue(newExplosionRadius);
+        }
+        else
+        {
+            Debug.Log($"{nameof(_explosionRadiusCube)} = null");
         }
     }
 
