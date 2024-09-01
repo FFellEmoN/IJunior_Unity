@@ -4,7 +4,8 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField] private CubeDivider _cubeDivider;
-    [SerializeField, Min(0)] private float _Force = 1;
+    [SerializeField, Min(0)] private float _force = 1;
+    [SerializeField, Min(0)] private float _secondForce = 1;
     [SerializeField, Min(0)] private float _Radius = 1;
     [SerializeField, Range(-1, 1)] private float _PositionY;
 
@@ -15,6 +16,7 @@ public class Explosion : MonoBehaviour
         if (_cubeDivider != null)
         {
             _cubeDivider.CreatedCustomCube += OnCreatedCustomCube;
+            _cubeDivider.DestroyCube += OnDestroyCube;
         }
         else
         {
@@ -27,6 +29,7 @@ public class Explosion : MonoBehaviour
         if (_cubeDivider != null)
         {
             _cubeDivider.CreatedCustomCube -= OnCreatedCustomCube;
+            _cubeDivider.DestroyCube -= OnDestroyCube;
         }
         else
         {
@@ -46,11 +49,29 @@ public class Explosion : MonoBehaviour
                 Rigidbody rigidbodyCubeCollider = cubeCollider.GetComponent<Rigidbody>();
 
                 rigidbodyCubeCollider.AddExplosionForce(
-                    _Force,
+                    _force,
                     explosionPosition,
                     _Radius,
                     _upwardsModifier,
                     ForceMode.Impulse);
+            }
+        }
+    }
+
+    private void OnDestroyCube(Vector3 positionDestroyedCustomCube, float explosionRadius)
+    {
+        if (_secondForce > 0 && explosionRadius > 0)
+        {
+            Collider[] colliders = Physics.OverlapSphere(positionDestroyedCustomCube, explosionRadius);
+
+            foreach (Collider cube in colliders)
+            {
+                Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
+
+                if (rigidbodyCube != null)
+                {
+                    rigidbodyCube.AddExplosionForce(_secondForce, positionDestroyedCustomCube, explosionRadius);
+                }
             }
         }
     }

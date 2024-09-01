@@ -13,6 +13,7 @@ public class CubeDivider : MonoBehaviour
     private float _maxProcents = 100f;
     private List<Collider> _customCubesColliders;
     public event Action<List<Collider>, Vector3> CreatedCustomCube;
+    public event Action<Vector3, float> DestroyCube;
 
     private void Start()
     {
@@ -89,20 +90,7 @@ public class CubeDivider : MonoBehaviour
         {
             Debug.Log(this.name + " - Объект не делится. Вероятность " + probabilityCube + "%, случайное число: " + randomChance);
 
-            if (_explosionForce > 0 && explosionRadius > 0)
-            {
-                Collider[] colliders = Physics.OverlapSphere(positionCube, explosionRadius);
-
-                foreach (Collider cube in colliders)
-                {
-                    Rigidbody rigidbodyCube = cube.GetComponent<Rigidbody>();
-
-                    if (rigidbodyCube != null)
-                    {
-                        rigidbodyCube.AddExplosionForce(_explosionForce, positionCube, explosionRadius);
-                    }
-                }
-            }
+            DestroyCube?.Invoke(positionCube, explosionRadius);
         }
     }
 }

@@ -1060,8 +1060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cubeDivider: {fileID: 1371344817}
-  _Force: 12
-  _Radius: 1
+  _force: 12
+  _secondForce: 500
+  _Radius: 3
   _PositionY: -0.48
 --- !u!1001 &1961412491
 PrefabInstance:
