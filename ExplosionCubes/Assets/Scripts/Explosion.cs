@@ -11,30 +11,24 @@ public class Explosion : MonoBehaviour
 
     private float _upwardsModifier = 1;
 
-    private void OnEnable()
+    private void OnValidate()
     {
-        if (_cubeDivider != null)
-        {
-            _cubeDivider.CreatedCustomCube += OnCreatedCustomCube;
-            _cubeDivider.DestroyCube += OnDestroyCube;
-        }
-        else
+        if (_cubeDivider == null)
         {
             Debug.Log($"{nameof(_cubeDivider)} = null");
         }
     }
 
+    private void OnEnable()
+    {
+        _cubeDivider.CreatedCustomCube += OnCreatedCustomCube;
+        _cubeDivider.DestroiedCube += OnDestroyCube;
+    }
+
     private void OnDisable()
     {
-        if (_cubeDivider != null)
-        {
-            _cubeDivider.CreatedCustomCube -= OnCreatedCustomCube;
-            _cubeDivider.DestroyCube -= OnDestroyCube;
-        }
-        else
-        {
-            Debug.Log($"{nameof(_cubeDivider)} = null");
-        }
+        _cubeDivider.CreatedCustomCube -= OnCreatedCustomCube;
+        _cubeDivider.DestroiedCube -= OnDestroyCube;
     }
 
     private void OnCreatedCustomCube(List<Collider> customCubesColliders, Vector3 positionDestroyedCustomCube)

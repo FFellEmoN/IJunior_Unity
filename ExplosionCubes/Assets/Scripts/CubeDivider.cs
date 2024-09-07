@@ -9,39 +9,51 @@ public class CubeDivider : MonoBehaviour
     [SerializeField] private float _explosionForce;
 
     private int _minNumberCubs = 2;
-    private int _maxNumberCubs = 7;
+    private int _maxNumberCubs = 6;
     private float _maxProcents = 100f;
     private List<Collider> _customCubesColliders;
+
     public event Action<List<Collider>, Vector3> CreatedCustomCube;
-    public event Action<Vector3, float> DestroyCube;
+    public event Action<Vector3, float> DestroiedCube;
 
     private void Start()
     {
         _customCubesColliders = new List<Collider>();
     }
 
-    private void OnEnable()
+    private void OnValidate()
     {
-        if (_emittedBeam != null)
+        if (_prefabCube == null)
         {
-            _emittedBeam.BeamHitCube += OnBeamHitCube;
+            Debug.LogError($"{nameof(_prefabCube)} не установлен в {nameof(CubeDivider)} в {gameObject.name}");
         }
         else
+        {
+            if (_prefabCube.GetComponent<CustomCube>() == null)
+            {
+                Debug.LogError($"{_prefabCube.name} должен содержать компонент {nameof(CustomCube)}.");
+            }
+
+            if (_prefabCube.GetComponent<Collider>() == null)
+            {
+                Debug.LogError($"{_prefabCube.name} должен содержать компонент Collider.");
+            }
+        }
+
+        if (_emittedBeam == null)
         {
             Debug.Log($"{nameof(_emittedBeam)} = null");
         }
     }
 
+    private void OnEnable()
+    {
+        _emittedBeam.BeamHitCube += OnBeamHitCube;
+    }
+
     private void OnDisable()
     {
-        if (_emittedBeam != null)
-        {
-            _emittedBeam.BeamHitCube -= OnBeamHitCube;
-        }
-        else
-        {
-            Debug.Log($"{nameof(_emittedBeam)} = null");
-        }
+        _emittedBeam.BeamHitCube -= OnBeamHitCube;
     }
 
     private void OnBeamHitCube(Vector3 positionCube, Vector3 localScaleCube, float probabilityCube, float explosionRadius)
@@ -50,37 +62,17 @@ public class CubeDivider : MonoBehaviour
 
         if (randomChance < probabilityCube)
         {
-            int numberCubs = UnityEngine.Random.Range(_minNumberCubs, _maxNumberCubs);
+            int numberCubs = UnityEngine.Random.Range(_minNumberCubs, _maxNumberCubs + 1);
 
             for (int i = 0; i < numberCubs; i++)
             {
-                if (_prefabCube != null)
-                {
-                    GameObject prefabCube = Instantiate(_prefabCube, positionCube, Quaternion.identity);
+                GameObject prefabCube = Instantiate(_prefabCube, positionCube, Quaternion.identity);
 
-                    if (prefabCube.GetComponent<CustomCube>())
-                    {
-                        CustomCube customCube = prefabCube.GetComponent<CustomCube>();
+                CustomCube customCube = prefabCube.GetComponent<CustomCube>();
 
-                        customCube.SetPosition(positionCube);
-                        customCube.SetLocalScale(localScaleCube);
-                        customCube.SetProbability(probabilityCube);
-                        customCube.SetExplosionRadius(explosionRadius);
+                customCube.Init(localScaleCube, positionCube, probabilityCube, explosionRadius);
 
-                        if (prefabCube.GetComponent<Collider>())
-                        {
-                            _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
-                        }
-                        else
-                        {
-                            Debug.Log($"{prefabCube.name} не имеет компонента Collider.");
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.Log($"{nameof(_prefabCube)} = null");
-                }
+                _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
             }
 
             CreatedCustomCube?.Invoke(_customCubesColliders, positionCube);
@@ -90,7 +82,7 @@ public class CubeDivider : MonoBehaviour
         {
             Debug.Log(this.name + " - Объект не делится. Вероятность " + probabilityCube + "%, случайное число: " + randomChance);
 
-            DestroyCube?.Invoke(positionCube, explosionRadius);
+            DestroiedCube?.Invoke(positionCube, explosionRadius);
         }
     }
 }

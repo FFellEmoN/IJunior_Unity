@@ -7,6 +7,7 @@ namespace CubesRain
     {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private GameObject _mainPlatform;
+        [SerializeField] private Material _defaultMaterial;
 
         private ObjectPool<GameObject> _pool;
      //  private float _repeatRate = 1f;
@@ -20,7 +21,7 @@ namespace CubesRain
             _pool = new ObjectPool<GameObject>(
                 createFunc: () => Instantiate(_prefab),
                 actionOnGet: (obj) => ActionOnGet(obj),
-                actionOnRelease: (obj) => obj.gameObject.SetActive(false),
+                actionOnRelease: (obj) => ActionOnRelease(obj),
                 actionOnDestroy: (obj) => Destroy(obj),
                 collectionCheck: false,
                 defaultCapacity: _poolCapacity,
@@ -71,6 +72,14 @@ namespace CubesRain
             float zRotation = Random.Range(minAngle, maxAngle);
 
             return new Vector3(xRotation, yRotation, zRotation);
+        }
+
+        private void ActionOnRelease(GameObject gameObject)
+        {
+            gameObject.gameObject.SetActive(false);
+            CustomCube customCube = gameObject.GetComponent<CustomCube>();
+            customCube.SetColor(_defaultMaterial);
+            customCube.SetWasContactPlane();
         }
     }
 }

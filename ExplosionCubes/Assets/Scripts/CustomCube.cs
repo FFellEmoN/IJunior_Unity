@@ -4,53 +4,59 @@ using UnityEngine;
 public class CustomCube : MonoBehaviour
 {
     [SerializeField] private List<Material> _colorsCubes;
-    [SerializeField] private ProbabilityDivision _probabilityCube;
     [SerializeField] private ExplosionRadius _explosionRadiusCube;
+
+    private float _probabilityCube = 100f;
+    private float _explosionRadius = 3;
 
     private void Start()
     {
         SetColor();
     }
 
-    public void SetLocalScale(Vector3 localScaleDestroyedCube)
+    public void Init(Vector3 localScaleDestroyedCube,
+        Vector3 transformPositionDestroyedCube,
+        float pobabilityDestroyedCube,
+        float explosionRadiusDestroyedCube)
+    {
+        SetLocalScale(localScaleDestroyedCube);
+        SetPosition(transformPositionDestroyedCube);
+        SetProbability(pobabilityDestroyedCube);
+        SetExplosionRadius(explosionRadiusDestroyedCube);
+    }
+
+    public float GetProbability()
+    {
+        return _probabilityCube;
+    }
+
+    public float GetExplosionRadius()
+    {
+        return _explosionRadius;
+    }
+
+    private void SetLocalScale(Vector3 localScaleDestroyedCube)
     {
         int dividerHalf = 2;
 
         transform.localScale = localScaleDestroyedCube / dividerHalf;
     }
 
-    public void SetPosition(Vector3 transformPositionDestroyedCube)
+    private void SetPosition(Vector3 transformPositionDestroyedCube)
     {
         transform.position = transformPositionDestroyedCube;
     }
 
-    public void SetProbability(float pobabilityDestroyedCube)
+    private void SetProbability(float probabilityCube)
     {
-        if (_probabilityCube != null) {
-            float denominator = 2;
-            float newProbability = pobabilityDestroyedCube / denominator;
-
-            _probabilityCube.SetValue(newProbability);
-        }
-        else
-        {
-            Debug.Log($"{nameof(_probabilityCube)} = null");
-        }
+        float denominator = 2;
+        _probabilityCube = probabilityCube / denominator;
     }
 
-    public void SetExplosionRadius(float explosionRadiusDestroyedCube)
+    private void SetExplosionRadius(float explosionRadiusDestroyedCube)
     {
-        if (_explosionRadiusCube != null)
-        {
-            float multiplier = 2;
-            float newExplosionRadius = explosionRadiusDestroyedCube * multiplier;
-
-            _explosionRadiusCube.SetValue(newExplosionRadius);
-        }
-        else
-        {
-            Debug.Log($"{nameof(_explosionRadiusCube)} = null");
-        }
+        float multiplier = 2;
+        _explosionRadius = explosionRadiusDestroyedCube * multiplier;
     }
 
     private void SetColor()

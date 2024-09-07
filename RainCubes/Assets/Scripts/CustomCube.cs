@@ -11,6 +11,20 @@ public class CustomCube : MonoBehaviour
     private int _minLiveTime = 2;
     private int _maxLiveTime = 6;
 
+    public void SetWasContactPlane()
+    {
+        _wasContactPlane = true;
+    }
+
+    public void SetColor(Material material)
+    {
+        if (material != null)
+        {
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.material = material;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (_wasContactPlane == false)
