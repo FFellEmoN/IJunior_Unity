@@ -62,10 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\EmittedBeam.cs" />
-    <Compile Include="Assets\Scripts\ExplosionRadius.cs" />
     <Compile Include="Assets\Scripts\CubeDivider.cs" />
     <Compile Include="Assets\Scripts\CustomCube.cs" />
-    <Compile Include="Assets\Scripts\ProbabilityDivision.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

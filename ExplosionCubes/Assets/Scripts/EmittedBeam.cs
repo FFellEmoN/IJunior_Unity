@@ -11,47 +11,47 @@ public class EmittedBeam : MonoBehaviour
 
     public event Action<Vector3, Vector3, float, float> BeamHitCube;
 
+    private void OnValidate()
+    {
+        if (_camera == null)
+        {
+            Debug.Log($"{nameof(_camera)} = null");
+        }
+    }
+
     private void Update()
     {
-        if (_camera != null)
+        RaycastHit[] hits;
+
+        _ray = _camera.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(_ray.origin, _ray.direction * _maxDistance, Color.magenta);
+
+        if (Input.GetMouseButtonDown(_rayEmitter))
         {
-            RaycastHit[] hits;
+            hits = Physics.RaycastAll(_ray, _maxDistance);
+            Array.Sort(hits, (hit1, hit2) => hit1.distance.CompareTo(hit2.distance));
 
-            _ray = _camera.ScreenPointToRay(Input.mousePosition); 
-            Debug.DrawRay(_ray.origin, _ray.direction * _maxDistance, Color.magenta);
-
-            if (Input.GetMouseButtonDown(_rayEmitter))
+            if (hits.Length > 0)
             {
-                hits = Physics.RaycastAll(_ray, _maxDistance);
-                Array.Sort(hits, (hit1, hit2) => hit1.distance.CompareTo(hit2.distance));
-
-                if (hits.Length > 0)
+                foreach (RaycastHit hit in hits)
                 {
-                    foreach (RaycastHit hit in hits)
+                    GameObject receivedGameObject = hit.transform.gameObject;
+
+                    if (receivedGameObject.GetComponent<CustomCube>())
                     {
-                        GameObject receivedGameObject = hit.transform.gameObject;
+                        CustomCube customCube = receivedGameObject.GetComponent<CustomCube>();
 
-                        if (receivedGameObject.GetComponent<CustomCube>() && 
-                            receivedGameObject.GetComponent<ProbabilityDivision>())
-                        {
-                            CustomCube customCube = receivedGameObject.GetComponent<CustomCube>();
+                        BeamHitCube?.Invoke(
+                            receivedGameObject.transform.position,
+                            receivedGameObject.transform.localScale,
+                            customCube.Probability,
+                            customCube.ExplosionRadius);
 
-                            BeamHitCube?.Invoke(
-                                receivedGameObject.transform.position,
-                                receivedGameObject.transform.localScale,
-                                customCube.GetProbability(),
-                                customCube.GetExplosionRadius());
-
-                            Destroy(receivedGameObject);
-                            break;
-                        }
+                        Destroy(receivedGameObject);
+                        break;
                     }
                 }
             }
-        }
-        else
-        {
-            Debug.Log($"{nameof(_camera)} = null");
         }
     }
 }

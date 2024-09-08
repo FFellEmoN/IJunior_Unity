@@ -3,11 +3,38 @@ using UnityEngine;
 
 public class CustomCube : MonoBehaviour
 {
-    [SerializeField] private List<Material> _colorsCubes;
-    [SerializeField] private ExplosionRadius _explosionRadiusCube;
+    [SerializeField] private List<Material> _colors;
 
-    private float _probabilityCube = 100f;
+    private float _probability = 100f;
     private float _explosionRadius = 3;
+
+    public float ExplosionRadius
+    {
+        get
+        {
+            return _explosionRadius;
+        }
+
+        private set
+        {
+            float multiplier = 2;
+            _explosionRadius = value * multiplier;
+        }
+    }
+
+    public float Probability
+    {
+        get
+        {
+            return _probability;
+        }
+
+        private set
+        {
+            float denominator = 2;
+            _probability = value / denominator;
+        }
+    }
 
     private void Start()
     {
@@ -21,18 +48,13 @@ public class CustomCube : MonoBehaviour
     {
         SetLocalScale(localScaleDestroyedCube);
         SetPosition(transformPositionDestroyedCube);
-        SetProbability(pobabilityDestroyedCube);
-        SetExplosionRadius(explosionRadiusDestroyedCube);
+        Probability = pobabilityDestroyedCube;
+        ExplosionRadius = explosionRadiusDestroyedCube;
     }
 
-    public float GetProbability()
+    public Collider GetCollider()
     {
-        return _probabilityCube;
-    }
-
-    public float GetExplosionRadius()
-    {
-        return _explosionRadius;
+        return GetComponent<Collider>();
     }
 
     private void SetLocalScale(Vector3 localScaleDestroyedCube)
@@ -47,30 +69,18 @@ public class CustomCube : MonoBehaviour
         transform.position = transformPositionDestroyedCube;
     }
 
-    private void SetProbability(float probabilityCube)
-    {
-        float denominator = 2;
-        _probabilityCube = probabilityCube / denominator;
-    }
-
-    private void SetExplosionRadius(float explosionRadiusDestroyedCube)
-    {
-        float multiplier = 2;
-        _explosionRadius = explosionRadiusDestroyedCube * multiplier;
-    }
-
     private void SetColor()
     {
-        if (_colorsCubes.Count > 0)
+        if (_colors.Count > 0)
         {
-            int randomValue = Random.Range(0, _colorsCubes.Count);
+            int randomValue = Random.Range(0, _colors.Count);
 
             MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-            meshRenderer.material = _colorsCubes[randomValue];
+            meshRenderer.material = _colors[randomValue];
         }
         else
         {
-            Debug.Log($"{nameof(_colorsCubes)} is eampty.");
+            Debug.Log($"{nameof(_colors)} is eampty.");
         }
     }
 }

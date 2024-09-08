@@ -359,8 +359,6 @@
 "Assets/Scripts/CustomCube.cs"
 "Assets/Scripts/EmittedBeam.cs"
 "Assets/Scripts/Explosion.cs"
-"Assets/Scripts/ExplosionRadius.cs"
-"Assets/Scripts/ProbabilityDivision.cs"
 -langversion:9.0
 
 /deterministic

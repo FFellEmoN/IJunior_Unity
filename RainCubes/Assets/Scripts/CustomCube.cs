@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class CustomCube : MonoBehaviour
 
     public void SetWasContactPlane()
     {
-        _wasContactPlane = true;
+        _wasContactPlane = false;
     }
 
     public void SetColor(Material material)

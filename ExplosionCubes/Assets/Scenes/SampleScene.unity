@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emittedBeam: {fileID: 227084620}
-  _prefabCube: {fileID: 5840855529983820073, guid: 894be507ba2769340864d760a874a89d, type: 3}
+  _prefab: {fileID: 7065688054265766508, guid: 894be507ba2769340864d760a874a89d, type: 3}
   _explosionForce: 1000
 --- !u!4 &1371344818
 Transform:
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   _cubeDivider: {fileID: 1371344817}
   _force: 12
   _secondForce: 500
-  _Radius: 3
+  _radius: 1
   _PositionY: -0.48
 --- !u!1001 &1961412491
 PrefabInstance:

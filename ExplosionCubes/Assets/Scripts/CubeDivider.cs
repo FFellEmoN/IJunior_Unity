@@ -5,39 +5,21 @@ using UnityEngine;
 public class CubeDivider : MonoBehaviour
 {
     [SerializeField] private EmittedBeam _emittedBeam;
-    [SerializeField] private GameObject _prefabCube;
+    [SerializeField] private CustomCube _prefab;
     [SerializeField] private float _explosionForce;
 
     private int _minNumberCubs = 2;
     private int _maxNumberCubs = 6;
     private float _maxProcents = 100f;
-    private List<Collider> _customCubesColliders;
 
     public event Action<List<Collider>, Vector3> CreatedCustomCube;
     public event Action<Vector3, float> DestroiedCube;
 
-    private void Start()
-    {
-        _customCubesColliders = new List<Collider>();
-    }
-
     private void OnValidate()
     {
-        if (_prefabCube == null)
+        if (_prefab == null)
         {
-            Debug.LogError($"{nameof(_prefabCube)} не установлен в {nameof(CubeDivider)} в {gameObject.name}");
-        }
-        else
-        {
-            if (_prefabCube.GetComponent<CustomCube>() == null)
-            {
-                Debug.LogError($"{_prefabCube.name} должен содержать компонент {nameof(CustomCube)}.");
-            }
-
-            if (_prefabCube.GetComponent<Collider>() == null)
-            {
-                Debug.LogError($"{_prefabCube.name} должен содержать компонент Collider.");
-            }
+            Debug.LogError($"{nameof(_prefab)} не установлен в {nameof(CubeDivider)} в {gameObject.name}");
         }
 
         if (_emittedBeam == null)
@@ -59,6 +41,7 @@ public class CubeDivider : MonoBehaviour
     private void OnBeamHitCube(Vector3 positionCube, Vector3 localScaleCube, float probabilityCube, float explosionRadius)
     {
         float randomChance = UnityEngine.Random.Range(0, _maxProcents);
+        List<Collider> customCubesColliders = new List<Collider>();
 
         if (randomChance < probabilityCube)
         {
@@ -66,17 +49,14 @@ public class CubeDivider : MonoBehaviour
 
             for (int i = 0; i < numberCubs; i++)
             {
-                GameObject prefabCube = Instantiate(_prefabCube, positionCube, Quaternion.identity);
-
-                CustomCube customCube = prefabCube.GetComponent<CustomCube>();
+                CustomCube customCube = Instantiate(_prefab, positionCube, Quaternion.identity);
 
                 customCube.Init(localScaleCube, positionCube, probabilityCube, explosionRadius);
 
-                _customCubesColliders.Add(prefabCube.GetComponent<Collider>());
+                customCubesColliders.Add(customCube.GetCollider());
             }
 
-            CreatedCustomCube?.Invoke(_customCubesColliders, positionCube);
-            _customCubesColliders = new List<Collider>();
+            CreatedCustomCube?.Invoke(customCubesColliders, positionCube);
         }
         else
         {

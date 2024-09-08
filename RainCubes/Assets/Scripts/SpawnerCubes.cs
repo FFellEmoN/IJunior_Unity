@@ -10,9 +10,8 @@ namespace CubesRain
         [SerializeField] private Material _defaultMaterial;
 
         private ObjectPool<GameObject> _pool;
-     //  private float _repeatRate = 1f;
         private int _poolCapacity = 5;
-        private int _poolMaxSize = 5;
+        private int _poolMaxSize = 15;
 
         private Vector3 _startPoint;
 
@@ -49,17 +48,19 @@ namespace CubesRain
 
         private Vector3 CalculateRandomSpawnPosition()
         {
-            float divider = 2;
+            float multiplier = 4;
 
-            float xPoisition = Random.Range(
-                Vector3.zero.x - _mainPlatform.gameObject.transform.localScale.x / divider, 
-                Vector3.zero.x + _mainPlatform.gameObject.transform.localScale.x / divider);
-            float yPosition = transform.position.y;
-            float zPoisition = Random.Range(
-                Vector3.zero.z - _mainPlatform.gameObject.transform.localScale.z / divider,
-                Vector3.zero.z + _mainPlatform.gameObject.transform.localScale.z / divider);
+            float xPosition = Random.Range(
+                _mainPlatform.transform.position.x - _mainPlatform.transform.localScale.x * multiplier,
+                _mainPlatform.transform.position.x + _mainPlatform.transform.localScale.x * multiplier);
 
-            return new Vector3(xPoisition, yPosition, zPoisition);
+            float yPosition = _mainPlatform.transform.position.y + transform.position.y;
+
+            float zPosition = Random.Range(
+                _mainPlatform.transform.position.z - _mainPlatform.transform.localScale.z * multiplier,
+                _mainPlatform.transform.position.z + _mainPlatform.transform.localScale.z * multiplier);
+
+            return new Vector3(xPosition, yPosition, zPosition);
         }
 
         private Vector3 CalculateRandomRotation()
@@ -78,7 +79,6 @@ namespace CubesRain
         {
             gameObject.gameObject.SetActive(false);
             CustomCube customCube = gameObject.GetComponent<CustomCube>();
-            customCube.SetColor(_defaultMaterial);
             customCube.SetWasContactPlane();
         }
     }
