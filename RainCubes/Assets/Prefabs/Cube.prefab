@@ -146,7 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14b384a15cf4304fa148e91711cf48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorsCubes:
+  _mainPlatform: {fileID: 3515648803897865777, guid: b76a7a03d50159d40bfbb35002662106, type: 3}
+  _meshRenderer: {fileID: 7203459131232494736}
+  _colors:
+  - {fileID: 2100000, guid: 9a244693dc1c5eb408f2a175475ea44c, type: 2}
   - {fileID: 2100000, guid: 55a755c40ae3b0a43927ace4c830c380, type: 2}
   - {fileID: 2100000, guid: 0dd9753b5822b8945954fca0925d1161, type: 2}
-  - {fileID: 2100000, guid: 9a244693dc1c5eb408f2a175475ea44c, type: 2}

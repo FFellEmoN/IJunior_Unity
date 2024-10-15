@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\RainCubes\\assets\\scripts\\customcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\raincubes\\assets\\scripts\\spawnercubes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnercubes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomCube.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\CustomCube.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CustomCube.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\CustomCube.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CustomCube.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwEEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T12:34:07.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpawnerCubes.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\SpawnerCubes.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnerCubes.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\SpawnerCubes.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpawnerCubes.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T12:34:10.276Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

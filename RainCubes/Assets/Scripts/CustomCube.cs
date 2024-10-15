@@ -1,62 +1,82 @@
-using System;
+using CubesRain;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomCube : MonoBehaviour
 {
-    [SerializeField] private List<Material> _colorsCubes;
+    [SerializeField] private GameObject _mainPlatform;
+    [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private List<Material> _colors;
 
     private bool _wasContactPlane = false;
+    private string _nameStandardMatirial = "Standard";
     private Coroutine _coroutine;
-    private int _minLiveTime = 2;
-    private int _maxLiveTime = 6;
+    private SpawnerCubes _spawner;
 
     public void SetWasContactPlane()
     {
         _wasContactPlane = false;
     }
 
-    public void SetColor(Material material)
+    public void SetStandardColor()
     {
-        if (material != null)
+        _meshRenderer.material = new Material(Shader.Find(_nameStandardMatirial));
+    }
+
+    private void OnValidate()
+    {
+        if (_meshRenderer == null)
         {
-            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-            meshRenderer.material = material;
+            Debug.Log($"{nameof(_meshRenderer)} = null");
         }
+
+        if (_colors.Count == 0)
+        {
+            Debug.Log($"{nameof(_colors)} is eampty.");
+        }
+
+        if (_mainPlatform == null)
+        {
+            Debug.Log($"{nameof(_mainPlatform)} = null");
+        }
+    }
+
+    private void Awake()
+    {
+        _spawner = FindObjectOfType<SpawnerCubes>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (_wasContactPlane == false)
+        int minLiveTime = 2;
+        int maxLiveTime = 5;
+
+        if (collision.gameObject.tag == _mainPlatform.tag)
         {
-            _wasContactPlane = true;
+            if (_wasContactPlane == false)
+            {
+                _wasContactPlane = true;
 
-            SetColor();
+                SetColor();
 
-            int randomValueDelay = Random.Range(_minLiveTime, _maxLiveTime);
-            _coroutine = StartCoroutine(Countdown(randomValueDelay));
+                int randomTimeLive = UnityEngine.Random.Range(minLiveTime, maxLiveTime + 1);
+
+                _coroutine = StartCoroutine(Countdown(randomTimeLive));
+            }
         }
     }
 
     private void SetColor()
     {
-        if (_colorsCubes.Count > 0)
-        {
-            int randomValue = Random.Range(0, _colorsCubes.Count);
+        int randomValue = UnityEngine.Random.Range(0, _colors.Count);
 
-            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-            meshRenderer.material = _colorsCubes[randomValue];
-        }
-        else
-        {
-            Debug.Log($"{nameof(_colorsCubes)} is eampty.");
-        }
+        _meshRenderer.material = _colors[randomValue];
     }
 
     private IEnumerator Countdown(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
-        Destroy(gameObject);
+        _spawner.ReleaseCube(gameObject);
     }
 }
