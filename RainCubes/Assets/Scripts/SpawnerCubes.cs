@@ -5,18 +5,11 @@ namespace CubesRain
 {
     public class SpawnerCubes : MonoBehaviour
     {
-        [SerializeField] private GameObject _prefab;
-        [SerializeField] private GameObject _mainPlatform;
+        [SerializeField] private CustomCube _prefab;
+        [SerializeField] private GameObject _mainPlatformOnScene;
+        [SerializeField] private Material _standardMaterial;
 
-        private ObjectPool<GameObject> _pool;
-        private int _poolCapacity = 15;
-        private int _poolMaxSize = 30;
-        private bool _isCheckPool = true;
-
-        public void ReleaseCube(GameObject cube)
-        {
-            _pool.Release(cube);
-        }
+        private ObjectPool<CustomCube> _pool;
 
         private void OnValidate()
         {
@@ -25,29 +18,54 @@ namespace CubesRain
                 Debug.LogError($"{nameof(_prefab)} не установлен в {nameof(CubesRain)} в {gameObject.name}");
             }
 
-            if (_mainPlatform == null)
+            if (_mainPlatformOnScene == null)
             {
-                Debug.Log($"{nameof(_mainPlatform)} = null");
+                Debug.Log($"{nameof(_mainPlatformOnScene)} = null");
+            }
+
+            if (_standardMaterial == null)
+            {
+                Debug.Log($"{nameof(_standardMaterial)} = null");
             }
         }
 
         private void Awake()
         {
-            _pool = new ObjectPool<GameObject>(
-                createFunc: () => Instantiate(_prefab),
-                actionOnGet: (obj) => ActionOnGet(obj),
-                actionOnRelease: (obj) => ActionOnRelease(obj),
-                actionOnDestroy: (obj) => Destroy(obj),
-                collectionCheck: _isCheckPool,
-                defaultCapacity: _poolCapacity,
-                maxSize: _poolMaxSize);
+            bool _isCheckPool = true;
+            int _poolCapacity = 15;
+            int _poolMaxSize = 15;
+
+            _pool = new ObjectPool<CustomCube>(
+                    createFunc: () => Instantiate(_prefab),
+                    actionOnGet: (obj) => ActionGet(obj),
+                    actionOnRelease: (obj) => ActionRelease(obj),
+                    actionOnDestroy: (obj) => Destroy(obj),
+                    collectionCheck: _isCheckPool,
+                    defaultCapacity: _poolCapacity,
+                    maxSize: _poolMaxSize);
         }
 
         private void Start()
         {
-            float repeatRate = 0.5f;
+            float intensityRain = 0.3f;
 
-            InvokeRepeating(nameof(GetCube), 0, repeatRate);
+            InvokeRepeating(nameof(GetCube), 0, intensityRain);
+        }
+
+        private void Enable(CustomCube customCube)
+        {
+            customCube.TimeRelese += OnTimeRelease;
+        }
+
+        private void Disable(CustomCube customCube)
+        {
+            customCube.TimeRelese -= OnTimeRelease;
+        }
+
+        private void OnTimeRelease(CustomCube customCube)
+        {
+            Disable(customCube);
+            _pool.Release(customCube);
         }
 
         private void GetCube()
@@ -55,16 +73,17 @@ namespace CubesRain
             _pool.Get();
         }
 
-        private void ActionOnGet(GameObject cube)
+        private void ActionGet(CustomCube customCube)
         {
-            cube.SetActive(true);
-            cube.transform.SetPositionAndRotation(
+            customCube.SetActive(true);
+            Enable(customCube);
+            customCube.transform.SetPositionAndRotation(
                 CalculateRandomSpawnPosition(),
                 Quaternion.Euler(CalculateRandomRotation()));
 
-            if (cube.GetComponent<Rigidbody>())
+            if (customCube.GetComponent<Rigidbody>())
             {
-                cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                customCube.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
 
@@ -72,12 +91,12 @@ namespace CubesRain
         {
             float multiplier = 4;
             float xPosition = Random.Range(
-                _mainPlatform.transform.position.x - _mainPlatform.transform.localScale.x * multiplier,
-                _mainPlatform.transform.position.x + _mainPlatform.transform.localScale.x * multiplier);
-            float yPosition = _mainPlatform.transform.position.y + transform.position.y;
+                _mainPlatformOnScene.transform.position.x - _mainPlatformOnScene.transform.localScale.x * multiplier,
+                _mainPlatformOnScene.transform.position.x + _mainPlatformOnScene.transform.localScale.x * multiplier);
+            float yPosition = _mainPlatformOnScene.transform.position.y + transform.position.y;
             float zPosition = Random.Range(
-                _mainPlatform.transform.position.z - _mainPlatform.transform.localScale.z * multiplier,
-                _mainPlatform.transform.position.z + _mainPlatform.transform.localScale.z * multiplier);
+                _mainPlatformOnScene.transform.position.z - _mainPlatformOnScene.transform.localScale.z * multiplier,
+                _mainPlatformOnScene.transform.position.z + _mainPlatformOnScene.transform.localScale.z * multiplier);
 
             return new Vector3(xPosition, yPosition, zPosition);
         }
@@ -93,17 +112,11 @@ namespace CubesRain
             return new Vector3(xRotation, yRotation, zRotation);
         }
 
-        private void ActionOnRelease(GameObject gameObject)
+        private void ActionRelease(CustomCube customCube)
         {
-            gameObject.SetActive(false);
-
-            if (gameObject.GetComponent<CustomCube>())
-            {
-                CustomCube customCube = gameObject.GetComponent<CustomCube>();
-
-                customCube.SetWasContactPlane();
-                customCube.SetStandardColor();
-            }
+            customCube.SetActive(false);
+            customCube.SetWasContactPlane();
+            customCube.SetStandardColor(_standardMaterial);
         }
     }
 }

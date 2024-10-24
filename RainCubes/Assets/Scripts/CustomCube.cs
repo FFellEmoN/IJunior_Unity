@@ -1,28 +1,18 @@
 using CubesRain;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomCube : MonoBehaviour
 {
-    [SerializeField] private GameObject _mainPlatform;
     [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private List<Material> _colors;
 
     private bool _wasContactPlane = false;
-    private string _nameStandardMatirial = "Standard";
     private Coroutine _coroutine;
-    private SpawnerCubes _spawner;
 
-    public void SetWasContactPlane()
-    {
-        _wasContactPlane = false;
-    }
-
-    public void SetStandardColor()
-    {
-        _meshRenderer.material = new Material(Shader.Find(_nameStandardMatirial));
-    }
+    public event Action<CustomCube> TimeRelese;
 
     private void OnValidate()
     {
@@ -35,16 +25,6 @@ public class CustomCube : MonoBehaviour
         {
             Debug.Log($"{nameof(_colors)} is eampty.");
         }
-
-        if (_mainPlatform == null)
-        {
-            Debug.Log($"{nameof(_mainPlatform)} = null");
-        }
-    }
-
-    private void Awake()
-    {
-        _spawner = FindObjectOfType<SpawnerCubes>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,7 +32,7 @@ public class CustomCube : MonoBehaviour
         int minLiveTime = 2;
         int maxLiveTime = 5;
 
-        if (collision.gameObject.tag == _mainPlatform.tag)
+        if (collision.gameObject.GetComponent<EmptyScriptForPlatform>())
         {
             if (_wasContactPlane == false)
             {
@@ -67,6 +47,21 @@ public class CustomCube : MonoBehaviour
         }
     }
 
+    public void SetWasContactPlane()
+    {
+        _wasContactPlane = false;
+    }
+
+    public void SetStandardColor(Material standardMatirial)
+    {
+        _meshRenderer.material = new Material(standardMatirial);
+    }
+
+    public void SetActive(bool isActive)
+    {
+        gameObject.SetActive(isActive);
+    }
+
     private void SetColor()
     {
         int randomValue = UnityEngine.Random.Range(0, _colors.Count);
@@ -77,6 +72,6 @@ public class CustomCube : MonoBehaviour
     private IEnumerator Countdown(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
-        _spawner.ReleaseCube(gameObject);
+        TimeRelese?.Invoke(this);
     }
 }
