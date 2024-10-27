@@ -355,8 +355,9 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.47f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.47f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/Scripts/Color.cs"
 "Assets/Scripts/CustomCube.cs"
-"Assets/Scripts/EmptyScriptForPlatform.cs"
+"Assets/Scripts/Platform.cs"
 "Assets/Scripts/SpawnerCubes.cs"
 -langversion:9.0
 /deterministic

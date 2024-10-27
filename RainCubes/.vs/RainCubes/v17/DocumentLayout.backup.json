@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\RainCubes\\assets\\scripts\\customcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\RainCubes\\assets\\scripts\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Color.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\Color.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Color.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\Color.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Color.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T08:39:30.321Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -28,10 +48,9 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\CustomCube.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\CustomCube.cs",
               "RelativeToolTip": "Assets\\Scripts\\CustomCube.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowDcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T12:34:07.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T12:34:07.473Z"
             },
             {
               "$type": "Document",
@@ -41,14 +60,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnerCubes.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\SpawnerCubes.cs",
               "RelativeToolTip": "Assets\\Scripts\\SpawnerCubes.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwDoAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAqwEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T12:34:10.276Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

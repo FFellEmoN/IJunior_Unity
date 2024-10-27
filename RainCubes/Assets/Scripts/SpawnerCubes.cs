@@ -7,7 +7,6 @@ namespace CubesRain
     {
         [SerializeField] private CustomCube _prefab;
         [SerializeField] private GameObject _mainPlatformOnScene;
-        [SerializeField] private Material _standardMaterial;
 
         private ObjectPool<CustomCube> _pool;
 
@@ -22,11 +21,6 @@ namespace CubesRain
             {
                 Debug.Log($"{nameof(_mainPlatformOnScene)} = null");
             }
-
-            if (_standardMaterial == null)
-            {
-                Debug.Log($"{nameof(_standardMaterial)} = null");
-            }
         }
 
         private void Awake()
@@ -37,9 +31,9 @@ namespace CubesRain
 
             _pool = new ObjectPool<CustomCube>(
                     createFunc: () => Instantiate(_prefab),
-                    actionOnGet: (obj) => ActionGet(obj),
+                    actionOnGet: (obj) => PrepareAndGet(obj),
                     actionOnRelease: (obj) => ActionRelease(obj),
-                    actionOnDestroy: (obj) => Destroy(obj),
+                    actionOnDestroy: (obj) => Destroy(obj.gameObject),
                     collectionCheck: _isCheckPool,
                     defaultCapacity: _poolCapacity,
                     maxSize: _poolMaxSize);
@@ -73,18 +67,13 @@ namespace CubesRain
             _pool.Get();
         }
 
-        private void ActionGet(CustomCube customCube)
+        private void PrepareAndGet(CustomCube customCube)
         {
-            customCube.SetActive(true);
+            customCube.Init(true);
             Enable(customCube);
             customCube.transform.SetPositionAndRotation(
                 CalculateRandomSpawnPosition(),
                 Quaternion.Euler(CalculateRandomRotation()));
-
-            if (customCube.GetComponent<Rigidbody>())
-            {
-                customCube.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
         }
 
         private Vector3 CalculateRandomSpawnPosition()
@@ -114,9 +103,7 @@ namespace CubesRain
 
         private void ActionRelease(CustomCube customCube)
         {
-            customCube.SetActive(false);
-            customCube.SetWasContactPlane();
-            customCube.SetStandardColor(_standardMaterial);
+            customCube.Init(false);
         }
     }
 }

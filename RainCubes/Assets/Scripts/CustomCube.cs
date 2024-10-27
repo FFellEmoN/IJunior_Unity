@@ -7,7 +7,8 @@ using UnityEngine;
 public class CustomCube : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
-    [SerializeField] private List<Material> _colors;
+    [SerializeField] private Color _color;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private bool _wasContactPlane = false;
     private Coroutine _coroutine;
@@ -21,9 +22,9 @@ public class CustomCube : MonoBehaviour
             Debug.Log($"{nameof(_meshRenderer)} = null");
         }
 
-        if (_colors.Count == 0)
+        if (_color == null)
         {
-            Debug.Log($"{nameof(_colors)} is eampty.");
+            Debug.Log($"{nameof(_color)} is eampty.");
         }
     }
 
@@ -32,7 +33,7 @@ public class CustomCube : MonoBehaviour
         int minLiveTime = 2;
         int maxLiveTime = 5;
 
-        if (collision.gameObject.GetComponent<EmptyScriptForPlatform>())
+        if (collision.gameObject.GetComponent<Platform>())
         {
             if (_wasContactPlane == false)
             {
@@ -47,26 +48,37 @@ public class CustomCube : MonoBehaviour
         }
     }
 
-    public void SetWasContactPlane()
+    public void Init(bool isActive)
+    {
+        if (isActive == true)
+        {
+            SetActive(isActive);
+            _rigidbody.velocity = Vector3.zero;
+        }
+        if (isActive == false)
+        {
+            SetActive(isActive);
+            SetWasContactPlane();
+        }
+    }
+
+    private void SetWasContactPlane()
     {
         _wasContactPlane = false;
+        SetColor();
     }
 
-    public void SetStandardColor(Material standardMatirial)
-    {
-        _meshRenderer.material = new Material(standardMatirial);
-    }
-
-    public void SetActive(bool isActive)
+    private void SetActive(bool isActive)
     {
         gameObject.SetActive(isActive);
     }
 
     private void SetColor()
     {
-        int randomValue = UnityEngine.Random.Range(0, _colors.Count);
-
-        _meshRenderer.material = _colors[randomValue];
+        if (_wasContactPlane == true)
+            _meshRenderer.material = _color.GetRandom();
+        else
+            _meshRenderer.material = _color.GetDefault();
     }
 
     private IEnumerator Countdown(float delay)
