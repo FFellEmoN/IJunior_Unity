@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -9,6 +10,7 @@ namespace CubesRain
         [SerializeField] private GameObject _mainPlatformOnScene;
 
         private ObjectPool<CustomCube> _pool;
+        private Coroutine _coroutine;
 
         private void OnValidate()
         {
@@ -31,9 +33,9 @@ namespace CubesRain
 
             _pool = new ObjectPool<CustomCube>(
                     createFunc: () => Instantiate(_prefab),
-                    actionOnGet: (obj) => PrepareAndGet(obj),
-                    actionOnRelease: (obj) => ActionRelease(obj),
-                    actionOnDestroy: (obj) => Destroy(obj.gameObject),
+                    actionOnGet: (cube) => Prepare(cube),
+                    actionOnRelease: (cube) => ResetZero(cube),
+                    actionOnDestroy: (cube) => Destroy(cube.gameObject),
                     collectionCheck: _isCheckPool,
                     defaultCapacity: _poolCapacity,
                     maxSize: _poolMaxSize);
@@ -43,7 +45,7 @@ namespace CubesRain
         {
             float intensityRain = 0.3f;
 
-            InvokeRepeating(nameof(GetCube), 0, intensityRain);
+            _coroutine = StartCoroutine(Countdown(intensityRain));
         }
 
         private void Enable(CustomCube customCube)
@@ -62,14 +64,15 @@ namespace CubesRain
             _pool.Release(customCube);
         }
 
-        private void GetCube()
+        private void Spawn()
         {
             _pool.Get();
         }
 
-        private void PrepareAndGet(CustomCube customCube)
+        private void Prepare(CustomCube customCube)
         {
             customCube.Init(true);
+            customCube.SetActive(true);
             Enable(customCube);
             customCube.transform.SetPositionAndRotation(
                 CalculateRandomSpawnPosition(),
@@ -101,9 +104,22 @@ namespace CubesRain
             return new Vector3(xRotation, yRotation, zRotation);
         }
 
-        private void ActionRelease(CustomCube customCube)
+        private void ResetZero(CustomCube customCube)
         {
             customCube.Init(false);
+            customCube.SetActive(false);
+        }
+
+        private IEnumerator Countdown(float delay)
+        {
+            WaitForSecondsRealtime delayTime = new WaitForSecondsRealtime(delay);
+
+            while (enabled)
+            {
+                Spawn();
+
+                yield return delayTime;
+            }
         }
     }
 }

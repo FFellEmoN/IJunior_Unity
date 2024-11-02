@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\RainCubes\\assets\\scripts\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\raincubes\\assets\\scripts\\spawnercubes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnercubes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\raincubes\\assets\\scripts\\changercolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\changercolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\RainCubes\\assets\\scripts\\customcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\RainCubes\\assets\\scripts\\spawnercubes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3BB133-C65A-A718-14ED-7DD1F17FBA62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnercubes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,38 +31,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Color.cs",
-              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\Color.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Color.cs",
-              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\Color.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Color.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAdAAAAAAAAAA==",
+              "Title": "ChangerColor.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\ChangerColor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ChangerColor.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\ChangerColor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ChangerColor.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwCAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-26T08:39:30.321Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CustomCube.cs",
               "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\CustomCube.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CustomCube.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\CustomCube.cs",
               "RelativeToolTip": "Assets\\Scripts\\CustomCube.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T12:34:07.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SpawnerCubes.cs",
               "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\SpawnerCubes.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnerCubes.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\RainCubes\\Assets\\Scripts\\SpawnerCubes.cs",
               "RelativeToolTip": "Assets\\Scripts\\SpawnerCubes.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAcwEsAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAUwGoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T12:34:10.276Z",
               "EditorCaption": ""

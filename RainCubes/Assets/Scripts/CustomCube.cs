@@ -7,7 +7,7 @@ using UnityEngine;
 public class CustomCube : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
-    [SerializeField] private Color _color;
+    [SerializeField] private ChangerColor _color;
     [SerializeField] private Rigidbody _rigidbody;
 
     private bool _wasContactPlane = false;
@@ -52,14 +52,17 @@ public class CustomCube : MonoBehaviour
     {
         if (isActive == true)
         {
-            SetActive(isActive);
             _rigidbody.velocity = Vector3.zero;
         }
-        if (isActive == false)
+        else
         {
-            SetActive(isActive);
             SetWasContactPlane();
         }
+    }
+
+    public void SetActive(bool isActive)
+    {
+        gameObject.SetActive(isActive);
     }
 
     private void SetWasContactPlane()
@@ -68,17 +71,12 @@ public class CustomCube : MonoBehaviour
         SetColor();
     }
 
-    private void SetActive(bool isActive)
-    {
-        gameObject.SetActive(isActive);
-    }
-
     private void SetColor()
     {
         if (_wasContactPlane == true)
-            _meshRenderer.material = _color.GetRandom();
+            _color.SetRandom();
         else
-            _meshRenderer.material = _color.GetDefault();
+            _color.SetDefault();
     }
 
     private IEnumerator Countdown(float delay)

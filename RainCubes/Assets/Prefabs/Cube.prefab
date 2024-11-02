@@ -167,3 +167,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 55a755c40ae3b0a43927ace4c830c380, type: 2}
   - {fileID: 2100000, guid: 0dd9753b5822b8945954fca0925d1161, type: 2}
   _defaultMaterial: {fileID: 2100000, guid: f29cf9f61bdcc7b4db703f0a5bfc2ed8, type: 2}
+  _matirialCube: {fileID: 7203459131232494736}
