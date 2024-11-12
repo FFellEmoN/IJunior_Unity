@@ -356,8 +356,12 @@
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.47f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/UnityAll/Unity Hub/2022.3.47f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Enemy.cs"
+"Assets/Scripts/MovementCube.cs"
 "Assets/Scripts/Spawner.cs"
 "Assets/Scripts/SpawnPoint.cs"
+"Assets/Scripts/TypeTarget/BlueTarget.cs"
+"Assets/Scripts/TypeTarget/PurpleTarget.cs"
+"Assets/Scripts/TypeTarget/RedTarget.cs"
 "Assets/Scripts/ZoneRelease.cs"
 -langversion:9.0
 /deterministic

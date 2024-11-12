@@ -1,19 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private Rigidbody _rigidbody;
 
-    private Vector3 _directionMovement;
+    private MovementCube _directionMovement;
 
-    public event Action<Enemy> Fell;
+    public event Action<Enemy> AchievedTarget;
 
     private void OnValidate()
     {
-        if (_speed == 0)
+        if (_speed == 0 && isActiveAndEnabled == true)
         {
             Debug.Log($"{nameof(_speed)} не инициализирован.");
         }
@@ -21,21 +20,21 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Vector3 movement = _directionMovement.normalized * _speed * Time.deltaTime;
+        Vector3 direction = (_directionMovement.gameObject.transform.position - transform.position).normalized;
 
-        transform.position += movement;
+        _rigidbody.MovePosition(transform.position + direction * _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ZoneRelease>())
+        if (other.GetComponent<MovementCube>() == _directionMovement)
         {
-            Fell?.Invoke(this);
+            AchievedTarget?.Invoke(this);
         }
     }
 
-    public void SetDirectionMovement(Vector3 directionMovement)
+    public void SetTarget(MovementCube targetMovement)
     {
-        _directionMovement = directionMovement;
+        _directionMovement = targetMovement;
     }
 }
