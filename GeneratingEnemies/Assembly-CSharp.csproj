@@ -62,11 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\MovementCube.cs" />
-    <Compile Include="Assets\Scripts\TypeTarget\BlueTarget.cs" />
-    <Compile Include="Assets\Scripts\TypeTarget\RedTarget.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\ZoneRelease.cs" />
-    <Compile Include="Assets\Scripts\TypeTarget\PurpleTarget.cs" />
     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
   </ItemGroup>
   <ItemGroup>

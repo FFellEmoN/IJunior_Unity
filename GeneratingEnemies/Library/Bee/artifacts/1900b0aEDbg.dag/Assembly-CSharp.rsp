@@ -359,9 +359,6 @@
 "Assets/Scripts/MovementCube.cs"
 "Assets/Scripts/Spawner.cs"
 "Assets/Scripts/SpawnPoint.cs"
-"Assets/Scripts/TypeTarget/BlueTarget.cs"
-"Assets/Scripts/TypeTarget/PurpleTarget.cs"
-"Assets/Scripts/TypeTarget/RedTarget.cs"
 "Assets/Scripts/ZoneRelease.cs"
 -langversion:9.0
 /deterministic
