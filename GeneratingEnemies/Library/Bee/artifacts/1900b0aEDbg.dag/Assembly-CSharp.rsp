@@ -359,7 +359,6 @@
 "Assets/Scripts/MovementCube.cs"
 "Assets/Scripts/Spawner.cs"
 "Assets/Scripts/SpawnPoint.cs"
-"Assets/Scripts/ZoneRelease.cs"
 -langversion:9.0
 /deterministic
 /optimize-

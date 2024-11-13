@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     private void OnValidate()
     {
-        if (_speed == 0 && isActiveAndEnabled == true)
+        if (_speed == 0 || isActiveAndEnabled == true)
         {
             Debug.Log($"{nameof(_speed)} не инициализирован.");
         }

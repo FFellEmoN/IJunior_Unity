@@ -8,6 +8,21 @@ public class SpawnPoint : MonoBehaviour
 
     private ObjectPool<Enemy> _pool;
 
+    private void OnValidate()
+    {
+        if (isActiveAndEnabled == true) {
+            if (_target == null)
+            {
+                Debug.Log($"{nameof(_target)} не инициализирован.");
+            }
+
+            if (_prefabEnemy == null)
+            {
+                Debug.Log($"{nameof(_prefabEnemy)} не инициализирован.");
+            }
+        }
+    }
+
     private void Awake()
     {
         bool isCheckPool = true;
@@ -23,21 +38,6 @@ public class SpawnPoint : MonoBehaviour
                 collectionCheck: isCheckPool,
                 defaultCapacity: poolCapacity,
                 maxSize: poolMaxSize);
-    }
-
-    private void OnValidate()
-    {
-        if (isActiveAndEnabled == true) {
-            if (_target == null)
-            {
-                Debug.Log($"{nameof(_target)} не инициализирован.");
-            }
-
-            if (_prefabEnemy == null)
-            {
-                Debug.Log($"{nameof(_prefabEnemy)} не инициализирован.");
-            }
-        }
     }
 
     public void Spawn()

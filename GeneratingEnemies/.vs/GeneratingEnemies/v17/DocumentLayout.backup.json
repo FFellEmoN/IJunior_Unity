@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\generatingenemies\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\assets\\scripts\\spawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\generatingenemies\\assets\\scripts\\zonerelease.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\zonerelease.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\assets\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\generatingenemies\\assets\\scripts\\spawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\generatingenemies\\assets\\scripts\\movementcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movementcube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\generatingenemies\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC464509-39E0-3C61-D1FD-1F7C21636169}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,39 +38,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SpawnPoint.cs",
-              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\SpawnPoint.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnPoint.cs",
-              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\SpawnPoint.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SpawnPoint.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAiwEwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T19:24:45.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Spawner.cs",
-              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\Spawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Spawner.cs",
-              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\Spawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Spawner.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAqwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T19:46:36.386Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ZoneRelease.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\ZoneRelease.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ZoneRelease.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\ZoneRelease.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ZoneRelease.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T18:45:18.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Enemy.cs",
               "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T18:51:17.212Z",
+              "WhenOpened": "2024-11-13T18:44:02.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MovementCube.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\MovementCube.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MovementCube.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\MovementCube.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MovementCube.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T18:43:51.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SpawnPoint.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\SpawnPoint.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnPoint.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\SpawnPoint.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpawnPoint.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T19:24:45.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Spawner.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\Spawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Spawner.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\GeneratingEnemies\\Assets\\Scripts\\Spawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Spawner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T19:46:36.386Z",
               "EditorCaption": ""
             }
           ]

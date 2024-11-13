@@ -29,14 +29,14 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
-            SpawnPoint spawnPoint = ChoosingRandomSpawnPoint();
+            SpawnPoint spawnPoint = SelectRandomSpawnPoint();
             spawnPoint.Spawn();
 
             yield return delayTime;
         }
     }
 
-    private SpawnPoint ChoosingRandomSpawnPoint()
+    private SpawnPoint SelectRandomSpawnPoint()
     {
         int numberRandomSpawnPoint = Random.Range(0, _spawnPoints.Count);
 
