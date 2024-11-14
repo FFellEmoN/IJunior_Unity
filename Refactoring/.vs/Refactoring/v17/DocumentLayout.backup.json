@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\refactoring\\assets\\scripts\\goplaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\goplaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\refactoring\\assets\\scripts\\instantiatebulletsshooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\instantiatebulletsshooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InstantiateBulletsShooting.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\InstantiateBulletsShooting.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InstantiateBulletsShooting.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\InstantiateBulletsShooting.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InstantiateBulletsShooting.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T19:21:23.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GoPlaces.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\GoPlaces.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GoPlaces.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\GoPlaces.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GoPlaces.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T19:06:36.071Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
