@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\Refactoring\\assets\\scripts\\instantiatebulletsshooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\instantiatebulletsshooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\Refactoring\\assets\\scripts\\instantiatebulletsshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\instantiatebulletsshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\refactoring\\assets\\scripts\\goplaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\goplaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\Refactoring\\assets\\scripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\refactoring\\assets\\scripts\\movementalongspecifiedpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19B9323-F436-AE19-9D48-7C488DAF92D9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movementalongspecifiedpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,25 +30,38 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\Bullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Bullet.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\Bullet.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T18:10:06.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InstantiateBulletsShooting.cs",
-              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\InstantiateBulletsShooting.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\InstantiateBulletsShooting.cs",
-              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\InstantiateBulletsShooting.cs",
-              "RelativeToolTip": "Assets\\Scripts\\InstantiateBulletsShooting.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwCgAAAAAAAAAAAAAAA==",
+              "Title": "InstantiateBulletsShooter.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\InstantiateBulletsShooter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InstantiateBulletsShooter.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\InstantiateBulletsShooter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InstantiateBulletsShooter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T19:21:23.427Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GoPlaces.cs",
-              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\GoPlaces.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GoPlaces.cs",
-              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\GoPlaces.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GoPlaces.cs",
+              "DocumentIndex": 2,
+              "Title": "MovementAlongSpecifiedPoints.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\MovementAlongSpecifiedPoints.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MovementAlongSpecifiedPoints.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\Refactoring\\Assets\\Scripts\\MovementAlongSpecifiedPoints.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MovementAlongSpecifiedPoints.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T19:06:36.071Z",
