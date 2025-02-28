@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class TargetPoints : MonoBehaviour
 {
@@ -24,5 +23,5 @@ public class TargetPoints : MonoBehaviour
     }
 #endif
 
-    public Transform Get(int index) { return _targetPoints[index]; }
+    public Transform Get(int index) => _targetPoints[index];
 }

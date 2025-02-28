@@ -11,12 +11,15 @@ public class Crook : MonoBehaviour
     {
         if (_speed <= 0)
         {
-            Debug.Log($"{nameof(_speed)} некоректное значение скорости.");
+            Debug.LogError($"{nameof(_speed)} некоректное значение скорости.");
         }
+    }
 
+    private void Awake()
+    {
         if (_targetPoints == null)
         {
-            Debug.Log($"{nameof(_targetPoints)} не инициализирован.");
+            Debug.LogError($"{nameof(_targetPoints)} не инициализирован на объекте {gameObject.name}.");
         }
     }
 

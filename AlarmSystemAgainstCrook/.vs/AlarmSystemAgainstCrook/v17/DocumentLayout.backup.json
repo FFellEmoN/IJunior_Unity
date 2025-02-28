@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\assets\\scripts\\volumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\volumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\alarmsystemagainstcrook\\assets\\scripts\\crook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\assets\\scripts\\crook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\crook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\assets\\scripts\\alarmsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\alarmsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\alarmsystemagainstcrook\\assets\\scripts\\crookdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\crookdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|d:\\repositoryes\\ijunior_unity\\alarmsystemagainstcrook\\assets\\scripts\\targetpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\targetpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\assets\\scripts\\volumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B666DF2-FF9B-4374-BC9A-6E139C1D0259}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\volumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,40 +35,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CrookDetector.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\CrookDetector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CrookDetector.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\CrookDetector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CrookDetector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T20:10:16.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TargetPoints.cs",
+              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\TargetPoints.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TargetPoints.cs",
+              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\TargetPoints.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TargetPoints.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T19:18:41.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Crook.cs",
               "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\Crook.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Crook.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\Crook.cs",
               "RelativeToolTip": "Assets\\Scripts\\Crook.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T18:06:30.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "VolumeController.cs",
               "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\VolumeController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\VolumeController.cs",
               "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\VolumeController.cs",
               "RelativeToolTip": "Assets\\Scripts\\VolumeController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T16:28:19.693Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AlarmSystem.cs",
-              "DocumentMoniker": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\AlarmSystem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AlarmSystem.cs",
-              "ToolTip": "D:\\Repositoryes\\IJunior_Unity\\AlarmSystemAgainstCrook\\Assets\\Scripts\\AlarmSystem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AlarmSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T18:45:13.812Z",
               "EditorCaption": ""
             }
           ]
